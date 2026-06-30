@@ -1,0 +1,227 @@
+// Default content for INB — PL verbatim from inbi.pl + EN translation.
+// DB (content table) overrides any key by language. This is the fallback source of truth.
+// Each key: { pl, en }. Lists are enumerated as separate keys (…liN).
+
+export const DEFAULTS = {
+  // ---------- BRAND / NAV ----------
+  'brand.sub':            { pl: 'INSURANCE', en: 'INSURANCE' },
+  'nav.about':            { pl: 'O nas', en: 'About us' },
+  'nav.management':       { pl: 'Władze', en: 'Management' },
+  'nav.experience':       { pl: 'Doświadczenie', en: 'Experience' },
+  'nav.offer':            { pl: 'Nasza oferta', en: 'Our offer' },
+  'nav.tenders':          { pl: 'Zamówienia publiczne', en: 'Public tenders' },
+  'nav.contact':          { pl: 'Kontakt', en: 'Contact' },
+
+  // ---------- HOME ----------
+  'home.hero.kicker':     { pl: 'Broker ubezpieczeniowy', en: 'Insurance broker' },
+  'home.hero.title1':     { pl: 'Jesteśmy prekursorem', en: 'We are a pioneer of' },
+  'home.hero.title2':     { pl: 'innowacyjnych rozwiązań', en: 'innovative solutions' },
+  'home.hero.lead':       {
+    pl: 'Dostarczamy naszym Klientom kompetentną i wiarygodną ochronę ubezpieczeniową ich aktywów i interesów.',
+    en: 'We provide our Clients with competent and reliable insurance protection of their assets and interests.',
+  },
+  'home.hero.cta':        { pl: 'Konsultacja', en: 'Consultation' },
+
+  'home.stat1.num':       { pl: '20+', en: '20+' },
+  'home.stat1.label':     { pl: 'lat na rynku ubezpieczeń', en: 'years on the insurance market' },
+  'home.stat2.num':       { pl: '1999', en: '1999' },
+  'home.stat2.label':     { pl: 'od tego roku w branży', en: 'in the industry since' },
+  'home.stat3.num':       { pl: '100%', en: '100%' },
+  'home.stat3.label':     { pl: 'indywidualne podejście', en: 'individual approach' },
+  'home.stat4.num':       { pl: '24/7', en: '24/7' },
+  'home.stat4.label':     { pl: 'monitoring szkód', en: 'claims monitoring' },
+
+  'home.belief':          {
+    pl: 'Wierzymy, że nasza wiedza w połączeniu z elastycznością serwisu stworzonego dla naszych Klientów, gwarantują usługę na najwyższym poziomie.',
+    en: 'We believe that our knowledge, combined with the flexibility of the service created for our Clients, guarantees a service at the highest level.',
+  },
+  'home.group':           {
+    pl: 'Działamy jako GRUPA INB, powiązanych kapitałowo firm, zajmujących się diagnozą oraz optymalizacją ryzyka przedsiębiorstw.',
+    en: 'We operate as GRUPA INB — a group of capital-linked companies dealing with the diagnosis and optimisation of enterprise risk.',
+  },
+  'home.offer':           {
+    pl: 'Oferujemy nowoczesne technologie i innowacyjne rozwiązania, poprzez które nasi Klienci osiągają wymierne korzyści biznesowe.',
+    en: 'We offer modern technologies and innovative solutions through which our Clients achieve measurable business benefits.',
+  },
+  'home.team':            {
+    pl: 'INBI to zespół najlepszych specjalistów z doświadczeniem zdobytym w pracy dla międzynarodowych brokerów.',
+    en: 'INBI is a team of the best specialists with experience gained working for international brokers.',
+  },
+  'home.cooperation':     {
+    pl: 'Współpraca z INBI procentuje sprawną likwidacją ewentualnych szkód oraz skutecznym rozwiązywaniem wszelkich spraw konfliktowych z towarzystwami ubezpieczeń.',
+    en: 'Cooperation with INBI pays off through efficient claims settlement and effective resolution of any disputes with insurance companies.',
+  },
+
+  'home.why.title':       { pl: 'Dlaczego warto nam zaufać?', en: 'Why can you trust us?' },
+
+  'home.card1.title':     { pl: 'Audyt ubezpieczeniowy', en: 'Insurance audit' },
+  'home.card1.body':      {
+    pl: 'Każdy nasz audyt posiada zalecenia dotyczące poprawy bezpieczeństwa i podwyższenia poziomu ochrony ubezpieczeniowej.',
+    en: 'Each of our audits includes recommendations for improving safety and raising the level of insurance protection.',
+  },
+  'home.card2.title':     { pl: 'Likwidacja szkód', en: 'Claims settlement' },
+  'home.card2.body':      {
+    pl: 'Wśród naszych Klientów wprowadziliśmy zasadę, że szkodę zgłaszamy osobiście, niezwłocznie po otrzymaniu informacji.',
+    en: 'Among our Clients we have introduced a rule that we report a claim personally, immediately after receiving the information.',
+  },
+  'home.card3.title':     { pl: 'Negocjacje programu', en: 'Programme negotiation' },
+  'home.card3.body':      {
+    pl: 'INBI koncentruje się na przygotowaniu programu ubezpieczeniowego, który zagwarantuje Klientowi optymalizację kosztów.',
+    en: 'INBI focuses on preparing an insurance programme that guarantees the Client cost optimisation.',
+  },
+
+  'home.process.title':   { pl: 'Jak wygląda proces ubezpieczenia?', en: 'How does the insurance process work?' },
+  'home.process.sub':     { pl: 'Z nami zrozumienie ubezpieczeń jest proste.', en: 'Understanding insurance is simple with us.' },
+  'home.step1.title':     { pl: 'Audyt i analiza ryzyk', en: 'Audit and risk analysis' },
+  'home.step1.body':      { pl: 'Identyfikujemy i analizujemy ryzyka ubezpieczeniowe Klienta.', en: 'We identify and analyse the Client’s insurance risks.' },
+  'home.step2.title':     { pl: 'Koncepcja i negocjacje', en: 'Concept and negotiation' },
+  'home.step2.body':      { pl: 'Przygotowujemy koncepcję programu i negocjujemy najlepsze warunki.', en: 'We prepare the programme concept and negotiate the best terms.' },
+  'home.step3.title':     { pl: 'Wdrożenie i obsługa', en: 'Implementation and service' },
+  'home.step3.body':      { pl: 'Wdrażamy program i zapewniamy stałą obsługę oraz likwidację szkód.', en: 'We implement the programme and provide ongoing service and claims handling.' },
+
+  'home.closing':         {
+    pl: 'Dokładamy wszelkich starań, by świadczone przez nas usługi zawsze były indywidualnie dostosowywane do potrzeb i zasobów finansowych naszych Klientów.',
+    en: 'We make every effort to ensure that the services we provide are always individually tailored to the needs and financial resources of our Clients.',
+  },
+
+  // ---------- ABOUT (o-nas) ----------
+  'about.title':          { pl: 'O nas', en: 'About us' },
+  'about.p1':             {
+    pl: 'INBI Spółka z o.o. jest firmą świadczącą usługi doradztwa i pośrednictwa ubezpieczeniowego. Jako broker ubezpieczeniowy dostarczamy naszym Klientom kompetentną i wiarygodną ochronę ubezpieczeniową ich aktywów i interesów. We współpracy stawiamy na jakość, doświadczenie i uczciwość. Wierzymy, że nasza wiedza w połączeniu z elastycznością serwisu stworzonego dla naszych Klientów, gwarantują usługę na najwyższym poziomie.',
+    en: 'INBI Spółka z o.o. is a company providing insurance advisory and brokerage services. As an insurance broker, we provide our Clients with competent and reliable insurance protection of their assets and interests. In our cooperation we focus on quality, experience and integrity. We believe that our knowledge, combined with the flexibility of the service created for our Clients, guarantees a service at the highest level.',
+  },
+  'about.p2':             {
+    pl: 'Działamy jako GRUPA INB, powiązanych kapitałowo firm, zajmujących się diagnozą oraz optymalizacją ryzyka przedsiębiorstw. Jednym z podmiotów grupy jest INB Consulting Sp. z o. o., oferująca wszelkiego rodzaju nowoczesne technologie i innowacyjne rozwiązania, poprzez które nasi Klienci osiągają wymierne korzyści biznesowe.',
+    en: 'We operate as GRUPA INB — a group of capital-linked companies dealing with the diagnosis and optimisation of enterprise risk. One of the entities of the group is INB Consulting Sp. z o. o., offering all kinds of modern technologies and innovative solutions through which our Clients achieve measurable business benefits.',
+  },
+  'about.list.title':     { pl: 'INBI to:', en: 'INBI means:' },
+  'about.li1':            { pl: 'Pracownicy z wieloletnim doświadczeniem', en: 'Staff with many years of experience' },
+  'about.li2':            { pl: 'Gwarancja wysokiej jakości usług', en: 'A guarantee of high-quality services' },
+  'about.li3':            { pl: 'Prekursor wielu innowacyjnych rozwiązań', en: 'A pioneer of many innovative solutions' },
+  'about.li4':            { pl: 'Indywidualne podejście do każdego Klienta', en: 'An individual approach to every Client' },
+  'about.li5':            { pl: 'Możliwość monitorowania szkód w czasie rzeczywistym', en: 'Real-time claims monitoring' },
+  'about.li6':            { pl: 'Współpraca z międzynarodowymi brokerami', en: 'Cooperation with international brokers' },
+
+  // ---------- MANAGEMENT (wladze) ----------
+  'wladze.title':         { pl: 'Władze', en: 'Management' },
+  'wladze.name':          { pl: 'Arkadiusz Przybyszewski', en: 'Arkadiusz Przybyszewski' },
+  'wladze.role':          { pl: 'Prezes Zarządu', en: 'President of the Board' },
+  'wladze.bio1':          {
+    pl: 'Absolwent Podyplomowych Studiów Diagnostyki Ryzyk i Likwidacji Szkód Ubezpieczeniowych w Ubezpieczeniach Majątkowych i Osobowych Akademii Finansów w Warszawie.',
+    en: 'Graduate of Postgraduate Studies in Risk Diagnostics and Insurance Claims Settlement in Property and Personal Insurance at the Academy of Finance in Warsaw.',
+  },
+  'wladze.bio2':          {
+    pl: 'Z branżą ubezpieczeniową związany od 1999 r. W latach 2003-2019 związany z Europejskim Konsorcjum Ubezpieczeniowym Sp. z o. o. gdzie pełnił funkcję Członka Zarządu. W okresie 2019-2020 r. związany z WDB S.A. gdzie pełnił funkcję Członka Zarządu. Podczas ponad siedemnastoletniej pracy uczestniczył w przygotowaniu i realizacji programów ubezpieczenia dla największych instytucji publicznych między innymi Straży Granicznej, Izby Celnej, Kasy Rolniczego Ubezpieczenia Społecznego oraz opracowaniu nowatorskich produktów ochronnych, niedostępnych standardowo na rynku ubezpieczeń. Posiada doświadczenie w przeprowadzaniu postępowań przetargowych zgodnie z ustawą Prawo zamówień publicznych. Organizator szkoleń związanych z problematyką ubezpieczeń. Doświadczenie w opracowaniu nowatorskich produktów ochronnych, niedostępnych standardowo na rynku ubezpieczeń, jak również opracowywanie i wdrażanie konkurencyjnych rozwiązań w zakresie produktów ubezpieczeniowych.',
+    en: 'Connected with the insurance industry since 1999. In 2003-2019 associated with Europejskie Konsorcjum Ubezpieczeniowe Sp. z o. o., where he served as a Member of the Board. In 2019-2020 associated with WDB S.A., where he served as a Member of the Board. During more than seventeen years of work he participated in the preparation and implementation of insurance programmes for the largest public institutions, including the Border Guard, the Customs Chamber and the Agricultural Social Insurance Fund, as well as in developing innovative protection products not normally available on the insurance market. He has experience in conducting tender procedures in accordance with the Public Procurement Law. Organiser of training related to insurance issues. Experience in developing innovative protection products not normally available on the insurance market, as well as designing and implementing competitive solutions in the field of insurance products.',
+  },
+
+  // ---------- EXPERIENCE (doswiadczenie) ----------
+  'exp.title':            { pl: 'Doświadczenie', en: 'Experience' },
+  'exp.p1':               {
+    pl: 'Zespół najlepszych specjalistów z wieloletnim doświadczeniem zdobytym w pracy dla międzynarodowych brokerów, którzy brali udział w tworzeniu oraz wdrażaniu innowacyjnych produktów przygotowanych specjalnie na potrzeby konkretnej branży. Wieloletnie doświadczenie członków naszego zespołu w aranżowaniu i obsłudze umów ubezpieczenia dla Klientów o zróżnicowanych potrzebach oraz strukturze ryzyka, są doskonałą przesłanką, gwarantującą sukces proponowanego przedsięwzięcia. Oprócz możliwości korzystania z wiedzy i doświadczenia profesjonalistów w zakresie właściwego pokrycia ryzyk oraz korzyści związanych ze stałym monitoringiem rynku ubezpieczeń, współpraca z INBI Sp. z o.o. procentuje sprawną likwidacją ewentualnych szkód oraz skutecznym rozwiązywaniem wszelkich spraw konfliktowych z towarzystwami ubezpieczeń.',
+    en: 'A team of the best specialists with many years of experience gained working for international brokers, who took part in creating and implementing innovative products prepared specifically for the needs of a given industry. The many years of experience of our team members in arranging and servicing insurance contracts for Clients with diverse needs and risk structures are an excellent premise guaranteeing the success of the proposed undertaking. In addition to the ability to draw on the knowledge and experience of professionals in the field of proper risk coverage and the benefits of constant monitoring of the insurance market, cooperation with INBI Sp. z o.o. pays off through efficient claims settlement and effective resolution of any disputes with insurance companies.',
+  },
+  'exp.p2':               {
+    pl: 'W przypadku obsługi programów globalnych INBI współpracuje z międzynarodowymi sieciami brokerskimi.',
+    en: 'For the servicing of global programmes, INBI cooperates with international broker networks.',
+  },
+
+  // ---------- OFFER (nasza oferta) ----------
+  'offer.title':          { pl: 'Nasza oferta', en: 'Our offer' },
+  'offer.s1.title':       { pl: 'Audyt ubezpieczeniowy — identyfikacja i analiza ryzyk ubezpieczeniowych', en: 'Insurance audit — identification and analysis of insurance risks' },
+  'offer.s1.body':        {
+    pl: 'Na początku współpracy oferujemy każdemu Klientowi analizę ochrony ubezpieczeniowej, opartej na weryfikacji zapisów zawartych umów ubezpieczenia pod kątem występujących u Klienta ryzyk, związanych z prowadzeniem działalności gospodarczej i posiadanym mieniem. Każdy nasz audyt posiada zalecenia dotyczące poprawy bezpieczeństwa i podwyższenia poziomu ochrony ubezpieczeniowej ze wskazaniem najkorzystniejszych, w sferze ubezpieczeń rozwiązań optymalizacji ochrony ubezpieczeniowej i kosztów ubezpieczenia.',
+    en: 'At the start of our cooperation we offer every Client an analysis of insurance protection, based on a review of the provisions of concluded insurance contracts in terms of the risks present at the Client, related to running a business and to owned property. Each of our audits includes recommendations for improving safety and raising the level of insurance protection, indicating the most advantageous insurance solutions for optimising protection and insurance costs.',
+  },
+  'offer.s2.title':       { pl: 'Przygotowanie koncepcji programu ubezpieczeniowego', en: 'Preparation of the insurance programme concept' },
+  'offer.s2.body':        {
+    pl: 'Na podstawie przeprowadzonej analizy ryzyk występujących u Klienta, przygotowujemy koncepcje programu ubezpieczeniowego zawierające pełen zakres ubezpieczenia z rozszerzeniem klauzul dodatkowych przystosowanych do specyfiki działalności. Przygotowana koncepcja posłuży do negocjacji warunków ubezpieczenia z ubezpieczycielem.',
+    en: 'Based on the analysis of the risks present at the Client, we prepare an insurance programme concept covering the full scope of insurance with additional clauses tailored to the specifics of the business. The prepared concept is used to negotiate the insurance terms with the insurer.',
+  },
+  'offer.s3.title':       { pl: 'Negocjacje programu', en: 'Programme negotiation' },
+  'offer.s3.body':        {
+    pl: 'INBI koncentruje się na przygotowaniu programu ubezpieczeniowego, który poprzez negocjacje nowych warunków lub renegocjacje obowiązujących umów ubezpieczenia zagwarantuje Klientowi optymalizację kosztów ubezpieczenia. Nasz zespół składa się z doświadczonych brokerów pracujących na rynku ubezpieczeniowym od ponad 20 lat. Nasi brokerzy uczestniczyli przy negocjacji programów ubezpieczeniowych dla największych podmiotów na rynku krajowym i zagranicznym.',
+    en: 'INBI focuses on preparing an insurance programme that, through the negotiation of new terms or the renegotiation of existing insurance contracts, guarantees the Client the optimisation of insurance costs. Our team consists of experienced brokers working on the insurance market for over 20 years. Our brokers have participated in negotiating insurance programmes for the largest entities on the domestic and foreign markets.',
+  },
+  'offer.s4.title':       { pl: 'Wdrożenie programu', en: 'Programme implementation' },
+  'offer.s4.body':        {
+    pl: 'Po akceptacji przez Klienta programu ubezpieczeniowego ostatecznie aktualizujemy dane do ubezpieczenia i przygotowujemy wnioski do ubezpieczycieli. Do naszych zadań należy sprawdzenie pod względem formalnym i faktycznym poprawności wystawionych przez ubezpieczyciela umów/polis ubezpieczeniowych. Kolejnym zadaniem jest przygotowanie informatorów zawierających instrukcję postępowania w przypadku wystąpienia szkody oraz nabycia lub zbycia majątku.',
+    en: 'After the Client accepts the insurance programme, we finalise the insurance data and prepare applications to the insurers. Our tasks include checking the formal and factual correctness of the insurance contracts/policies issued by the insurer. The next task is preparing guides containing instructions on how to proceed in the event of a claim and the acquisition or disposal of property.',
+  },
+  'offer.s5.title':       { pl: 'Obsługa programu ubezpieczeniowego', en: 'Insurance programme servicing' },
+  'offer.s5.intro':       { pl: 'Obsługa programu składa się w szczególności z następujących zagadnień:', en: 'Programme servicing consists in particular of the following:' },
+  'offer.s5.li1':         { pl: 'formułowanie odpowiednich roszczeń odszkodowawczych do ubezpieczycieli', en: 'formulating appropriate claims for compensation to insurers' },
+  'offer.s5.li2':         { pl: 'sprawowanie nadzoru nad prawidłową, co do zasady i terminowości realizacją odszkodowań przez towarzystwo ubezpieczeniowe', en: 'supervising the correct and timely payment of compensation by the insurance company' },
+  'offer.s5.li3':         { pl: 'monitoring zmian majątku (doubezpieczenie, czynności związane z rozliczeniem składki z tytułu zbycia ubezpieczonego mienia)', en: 'monitoring changes in property (additional insurance, settlement of premiums on the disposal of insured property)' },
+  'offer.s5.li4':         { pl: 'monitoring terminów płatności rat i wysokości składek do zapłaty', en: 'monitoring instalment payment deadlines and the amounts of premiums due' },
+  'offer.s5.li5':         { pl: 'przygotowanie niezbędnych dokumentów dotyczących realizowanych ubezpieczeń np. cesji praw', en: 'preparing the necessary documents relating to the insurance, e.g. assignments of rights' },
+  'offer.s5.intro2':      { pl: 'Świadczenie dodatkowych usług w zależności od potrzeb:', en: 'Provision of additional services depending on needs:' },
+  'offer.s5.li6':         { pl: 'doradztwo w zakresie ubezpieczenia ryzyk ponadstandardowych', en: 'advice on insuring non-standard risks' },
+  'offer.s5.li7':         { pl: 'bieżąca analiza rynku ubezpieczeniowego pod kątem tendencji zachodzących zmian, mających lub mogących mieć znaczenie albo zastosowanie w ubezpieczeniu', en: 'ongoing analysis of the insurance market for trends that have or may have significance or application in insurance' },
+  'offer.s6.title':       { pl: 'Likwidacja szkód', en: 'Claims settlement' },
+  'offer.s6.body':        {
+    pl: 'W przypadku wszelkiego rodzaju szkód istotne jest sprawne i właściwe zgłaszanie ich do Towarzystw Ubezpieczeniowych. Z doświadczeń naszych wynika, iż błędy popełnione na tym etapie skutkują zaniżeniem wypłaty odszkodowania lub całkowitym jej brakiem. Dlatego wśród naszych Klientów wprowadziliśmy zasadę, że szkodę zgłaszamy osobiście, niezwłocznie po otrzymaniu informacji.',
+    en: 'For all types of claims, it is essential to report them efficiently and correctly to the Insurance Companies. Our experience shows that mistakes made at this stage result in an understated payout of compensation or its complete absence. That is why, among our Clients, we have introduced a rule that we report a claim personally, immediately after receiving the information.',
+  },
+  'offer.s7.title':       { pl: 'Szkolenia z zakresu ubezpieczeń dostosowane do potrzeb Klienta:', en: 'Insurance training tailored to the Client’s needs:' },
+  'offer.s7.li1':         { pl: 'specjalistyczne szkolenia przeznaczone dla związków branżowych, grup zawodowych, zarządów spółek i jednostek administracji publicznej', en: 'specialist training for industry associations, professional groups, company boards and public administration units' },
+  'offer.s7.li2':         { pl: 'wystąpienia na konferencjach naukowych, branżowych', en: 'presentations at scientific and industry conferences' },
+  'offer.s7.li3':         { pl: 'szkolenia informacyjne dotyczące nowych, dostępnych na rynku ubezpieczeniowym', en: 'informational training on new products available on the insurance market' },
+  'offer.s8.title':       { pl: 'Obsługiwane ubezpieczenia:', en: 'Insurance lines we handle:' },
+  'offer.ins1':           { pl: 'Ubezpieczenie mienia', en: 'Property insurance' },
+  'offer.ins2':           { pl: 'Ubezpieczenie sprzętu elektronicznego', en: 'Electronic equipment insurance' },
+  'offer.ins3':           { pl: 'Ubezpieczenie maszyn od awarii', en: 'Machinery breakdown insurance' },
+  'offer.ins4':           { pl: 'Ubezpieczenie maszyn od szkód elektrycznych', en: 'Machinery electrical damage insurance' },
+  'offer.ins5':           { pl: 'Ubezpieczenie mienia w transporcie', en: 'Goods-in-transit insurance' },
+  'offer.ins6':           { pl: 'Ubezpieczenie odpowiedzialności cywilnej', en: 'Civil liability insurance' },
+  'offer.ins7':           { pl: 'Ubezpieczenie odpowiedzialności cywilnej Zarządu', en: 'Directors & Officers liability insurance' },
+  'offer.ins8':           { pl: 'Ubezpieczenie odpowiedzialności cywilnej przewoźnika', en: 'Carrier’s civil liability insurance' },
+  'offer.ins9':           { pl: 'Ubezpieczenie odpowiedzialności cywilnej spedytora', en: 'Freight forwarder’s civil liability insurance' },
+  'offer.ins10':          { pl: 'Ubezpieczenia odpowiedzialności cywilnej zawodowej', en: 'Professional civil liability insurance' },
+  'offer.ins11':          { pl: 'Ubezpieczenie mienia w budowie i montażu', en: 'Construction and erection all-risk insurance' },
+  'offer.ins12':          { pl: 'Ubezpieczenia komunikacyjne', en: 'Motor insurance' },
+  'offer.ins13':          { pl: 'Ubezpieczenia finansowe', en: 'Financial insurance' },
+  'offer.ins14':          { pl: 'Ubezpieczenia zdrowotne', en: 'Health insurance' },
+  'offer.ins15':          { pl: 'Ubezpieczenia grupowe na życie', en: 'Group life insurance' },
+  'offer.closing':        {
+    pl: 'Dokładamy wszelkich starań, by świadczone przez nas usługi zawsze były indywidualnie dostosowywane do potrzeb i zasobów finansowych naszych Klientów.',
+    en: 'We make every effort to ensure that the services we provide are always individually tailored to the needs and financial resources of our Clients.',
+  },
+
+  // ---------- CONTACT ----------
+  'kontakt.title':        { pl: 'Kontakt', en: 'Contact' },
+  'kontakt.cta':          { pl: 'Zapraszamy do współpracy', en: 'We invite you to cooperate' },
+  'kontakt.formtitle':    { pl: 'Napisz do nas', en: 'Write to us' },
+  'form.name':            { pl: 'Imię i nazwisko', en: 'Full name' },
+  'form.email':           { pl: 'E-mail', en: 'E-mail' },
+  'form.phone':           { pl: 'Telefon', en: 'Phone' },
+  'form.message':         { pl: 'Wiadomość', en: 'Message' },
+  'form.submit':          { pl: 'Wyślij wiadomość', en: 'Send message' },
+  'form.sending':         { pl: 'Wysyłanie…', en: 'Sending…' },
+  'form.ok':              { pl: 'Dziękujemy! Wiadomość została wysłana.', en: 'Thank you! Your message has been sent.' },
+  'form.err':             { pl: 'Coś poszło nie tak. Spróbuj ponownie.', en: 'Something went wrong. Please try again.' },
+  'form.consent':         { pl: 'Wysyłając formularz akceptujesz politykę prywatności.', en: 'By sending the form you accept the privacy policy.' },
+
+  // ---------- COMPANY / FOOTER ----------
+  'company.name':         { pl: 'INBI Sp. z o. o.', en: 'INBI Sp. z o. o.' },
+  'company.street':       { pl: 'ul. Śmiała 26', en: 'ul. Śmiała 26' },
+  'company.city':         { pl: '01-524 Warszawa', en: '01-524 Warsaw' },
+  'company.tel':          { pl: '22 327 16 55', en: '22 327 16 55' },
+  'company.email':        { pl: 'biuro@inbi.pl', en: 'biuro@inbi.pl' },
+  'company.www':          { pl: 'inbi.pl', en: 'inbi.pl' },
+  'company.nip':          { pl: 'NIP 5252822075', en: 'NIP 5252822075' },
+  'company.regon':        { pl: 'REGON 385981301', en: 'REGON 385981301' },
+  'company.krs':          { pl: 'KRS 0000838814', en: 'KRS 0000838814' },
+  'footer.rights':        { pl: 'Wszelkie prawa zastrzeżone.', en: 'All rights reserved.' },
+  'footer.tagline':       { pl: 'Kompetentna i wiarygodna ochrona ubezpieczeniowa.', en: 'Competent and reliable insurance protection.' },
+
+  // ---------- PRIVACY ----------
+  'privacy.title':        { pl: 'Polityka prywatności', en: 'Privacy policy' },
+  'privacy.body':         {
+    pl: 'Administratorem danych osobowych jest INBI Sp. z o. o. z siedzibą w Warszawie, ul. Śmiała 26, 01-524 Warszawa. Dane podane w formularzu kontaktowym przetwarzamy wyłącznie w celu udzielenia odpowiedzi na zapytanie oraz nawiązania współpracy. Dane nie są przekazywane podmiotom trzecim w celach marketingowych. Masz prawo dostępu do swoich danych, ich sprostowania, usunięcia oraz ograniczenia przetwarzania. W sprawach dotyczących danych osobowych prosimy o kontakt: biuro@inbi.pl.',
+    en: 'The controller of personal data is INBI Sp. z o. o. with its registered office in Warsaw, ul. Śmiała 26, 01-524 Warsaw. We process the data provided in the contact form solely to respond to your enquiry and to establish cooperation. The data is not shared with third parties for marketing purposes. You have the right to access your data, rectify it, delete it and restrict its processing. For matters concerning personal data, please contact: biuro@inbi.pl.',
+  },
+}
+
+// External URL — public procurement portal (kept as-is).
+export const TENDERS_URL = 'https://zamowienia.inbi.pl'
