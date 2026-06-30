@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { me, login, logout } from './adminApi.js'
 import Editor from './Editor.jsx'
-import Submissions from './Submissions.jsx'
 import Analytics from './Analytics.jsx'
 import Admins from './Admins.jsx'
 import './admin.css'
@@ -39,7 +38,6 @@ function Login({ onLogin }) {
 
 const TABS = [
   { id: 'editor', label: 'Edytor strony', perm: 'can_edit_content', C: Editor },
-  { id: 'submissions', label: 'Zgłoszenia', perm: 'can_view_submissions', C: Submissions },
   { id: 'analytics', label: 'Analityka', perm: 'can_view_analytics', C: Analytics },
   { id: 'admins', label: 'Administratorzy', perm: 'can_create_admins', C: Admins },
 ]

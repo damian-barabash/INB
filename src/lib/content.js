@@ -79,6 +79,9 @@ export const DEFAULTS = {
   'home.step3.title':     { pl: 'Wdrożenie i obsługa', en: 'Implementation and service' },
   'home.step3.body':      { pl: 'Wdrażamy program i zapewniamy stałą obsługę oraz likwidację szkód.', en: 'We implement the programme and provide ongoing service and claims handling.' },
 
+  'home.coop.kicker':     { pl: 'Współpraca', en: 'Cooperation' },
+  'home.audit.kicker':    { pl: 'Audyt i analiza', en: 'Audit & analysis' },
+
   'home.closing':         {
     pl: 'Dokładamy wszelkich starań, by świadczone przez nas usługi zawsze były indywidualnie dostosowywane do potrzeb i zasobów finansowych naszych Klientów.',
     en: 'We make every effort to ensure that the services we provide are always individually tailored to the needs and financial resources of our Clients.',
@@ -239,6 +242,14 @@ export const DEFAULTS = {
   // ---------- CONTACT ----------
   'kontakt.title':        { pl: 'Kontakt', en: 'Contact' },
   'kontakt.cta':          { pl: 'Zapraszamy do współpracy', en: 'We invite you to cooperate' },
+  'kontakt.intro':        {
+    pl: 'Skontaktuj się z nami telefonicznie lub mailowo — odpowiemy na wszystkie pytania i przygotujemy indywidualną ofertę ochrony ubezpieczeniowej.',
+    en: 'Get in touch by phone or e-mail — we will answer all your questions and prepare an individual insurance protection offer.',
+  },
+  'kontakt.call':         { pl: 'Zadzwoń', en: 'Call us' },
+  'kontakt.write':        { pl: 'Napisz e-mail', en: 'Write an e-mail' },
+  'kontakt.hours.k':      { pl: 'Godziny pracy', en: 'Office hours' },
+  'kontakt.hours.v':      { pl: 'Poniedziałek–Piątek, 9:00–17:00', en: 'Monday–Friday, 9:00–17:00' },
   'kontakt.formtitle':    { pl: 'Napisz do nas', en: 'Write to us' },
   'form.name':            { pl: 'Imię i nazwisko', en: 'Full name' },
   'form.email':           { pl: 'E-mail', en: 'E-mail' },

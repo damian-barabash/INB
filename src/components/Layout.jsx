@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import { Outlet, useLocation, ScrollRestoration } from 'react-router-dom'
 import Nav from './Nav.jsx'
 import Footer from './Footer.jsx'
-import Cursor from './Cursor.jsx'
 import ScrollProgress from './ScrollProgress.jsx'
 import { useApp } from '../lib/store.jsx'
 import { track } from '../lib/analytics.js'
@@ -18,7 +17,6 @@ export default function Layout() {
   return (
     <>
       <ScrollProgress />
-      <Cursor />
       <Nav />
       <main><Outlet /></main>
       <Footer />

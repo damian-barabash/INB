@@ -1,14 +1,10 @@
-import { useState, useEffect, lazy, Suspense } from 'react'
 import { Link } from 'react-router-dom'
 import { useApp, T, Img } from '../lib/store.jsx'
 import Reveal from '../components/Reveal.jsx'
 import Stat from '../components/Stat.jsx'
 import MagneticButton from '../components/MagneticButton.jsx'
-import RiskCalc from '../components/RiskCalc.jsx'
-import SafeCanvas from '../components/SafeCanvas.jsx'
 import Statements from '../components/Statements.jsx'
 
-const Hero3D = lazy(() => import('../components/Hero3D.jsx'))
 const BASE = import.meta.env.BASE_URL
 
 const CARDS = [
@@ -30,25 +26,22 @@ const STATS = [
   ['home.stat4.num', 'home.stat4.label'],
 ]
 
+const Arrow = () => (
+  <span className="btn__arrow" aria-hidden>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M7 17 17 7M9 7h8v8" /></svg>
+  </span>
+)
+
 export default function Home() {
-  const { text, editing } = useApp()
-  const [mobile, setMobile] = useState(false)
-  useEffect(() => {
-    const mq = window.matchMedia('(hover: none), (max-width: 940px)')
-    const upd = () => setMobile(mq.matches)
-    upd(); mq.addEventListener('change', upd)
-    return () => mq.removeEventListener('change', upd)
-  }, [])
+  const { text } = useApp()
 
   return (
     <>
-      {/* HERO */}
-      <section className="hero">
-        {!editing && (
-          <div className="hero__canvas">
-            <SafeCanvas><Suspense fallback={null}><Hero3D mobile={mobile} /></Suspense></SafeCanvas>
-          </div>
-        )}
+      {/* HERO — photo background */}
+      <section className="hero hero--photo">
+        <div className="hero__bg">
+          <Img k="home.hero.bg" fallback={`${BASE}img/hero.webp`} alt="" />
+        </div>
         <div className="wrap hero__grid">
           <div>
             <Reveal><div className="kicker">{text('home.hero.kicker')}</div></Reveal>
@@ -61,25 +54,21 @@ export default function Home() {
             <Reveal delay={160}><T as="p" k="home.hero.lead" className="lead hero__lead" /></Reveal>
             <Reveal delay={220}>
               <MagneticButton as={Link} to="/kontakt" className="btn btn--accent">
-                {text('home.hero.cta')}
-                <span className="btn__arrow" aria-hidden>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M7 17 17 7M9 7h8v8" /></svg>
-                </span>
+                {text('home.hero.cta')}<Arrow />
               </MagneticButton>
               <div className="hero__socials">
-                <a href="mailto:biuro@inbi.pl" aria-label="E-mail" data-hot>
+                <a href="mailto:biuro@inbi.pl" aria-label="E-mail">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></svg>
                 </a>
-                <a href="tel:+48223271655" aria-label="Telefon" className="hero__phone" data-hot>+48 22 327 16 55</a>
+                <a href="tel:+48223271655" aria-label="Telefon" className="hero__phone">+48 22 327 16 55</a>
               </div>
             </Reveal>
           </div>
-          <div className="hero__right" aria-hidden />
         </div>
       </section>
 
       {/* STATS */}
-      <section className="section" style={{ paddingTop: 0 }}>
+      <section className="section" style={{ paddingTop: 'clamp(60px,8vw,110px)' }}>
         <div className="wrap">
           <Reveal className="stats">
             {STATS.map(([n, l]) => <Stat key={n} value={text(n)} label={text(l)} />)}
@@ -95,6 +84,24 @@ export default function Home() {
             <Reveal delay={100}><T as="p" k="home.team" className="body-text" style={{ alignSelf: 'center' }} /></Reveal>
           </div>
           <Statements />
+        </div>
+      </section>
+
+      {/* COOPERATION photo band */}
+      <section className="section" style={{ paddingTop: 0 }}>
+        <div className="wrap">
+          <div className="split" style={{ alignItems: 'center' }}>
+            <Reveal>
+              <div className="photo-frame"><Img k="home.coop.img" fallback={`${BASE}img/coop.webp`} alt={text('home.coop.kicker')} /></div>
+            </Reveal>
+            <Reveal delay={100}>
+              <div className="kicker" style={{ marginBottom: 22 }}>{text('home.coop.kicker')}</div>
+              <T as="p" k="home.cooperation" className="lead" style={{ marginBottom: 28 }} />
+              <MagneticButton as={Link} to="/doswiadczenie" className="btn btn--ghost">
+                {text('nav.experience')}<Arrow />
+              </MagneticButton>
+            </Reveal>
+          </div>
         </div>
       </section>
 
@@ -117,14 +124,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* RISK CALCULATOR */}
+      {/* AUDIT photo band */}
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="wrap">
-          <div className="split" style={{ marginBottom: 46 }}>
-            <Reveal><h2 className="title"><T as="span" k="calc.title" /></h2></Reveal>
-            <Reveal delay={100}><T as="p" k="calc.sub" className="body-text" style={{ alignSelf: 'center' }} /></Reveal>
+          <div className="split" style={{ alignItems: 'center' }}>
+            <Reveal delay={100}>
+              <div className="kicker" style={{ marginBottom: 22 }}>{text('home.audit.kicker')}</div>
+              <T as="h2" k="home.card1.title" className="title" style={{ marginBottom: 18 }} />
+              <T as="p" k="home.card1.body" className="body-text" style={{ marginBottom: 28 }} />
+              <MagneticButton as={Link} to="/oferta" className="btn btn--ghost">
+                {text('nav.offer')}<Arrow />
+              </MagneticButton>
+            </Reveal>
+            <Reveal>
+              <div className="photo-frame"><Img k="home.audit.img" fallback={`${BASE}img/audit.webp`} alt={text('home.audit.kicker')} /></div>
+            </Reveal>
           </div>
-          <Reveal><RiskCalc /></Reveal>
         </div>
       </section>
 
@@ -153,13 +168,10 @@ export default function Home() {
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="wrap">
           <Reveal>
-            <div style={{ background: 'var(--navy)', color: '#fff', borderRadius: 'var(--radius)', padding: 'clamp(40px,6vw,72px)', display: 'flex', flexWrap: 'wrap', gap: 30, alignItems: 'center', justifyContent: 'space-between' }}>
+            <div className="cta-band">
               <T as="p" k="home.closing" style={{ fontSize: 'clamp(20px,2.6vw,30px)', fontWeight: 600, maxWidth: 760, lineHeight: 1.35 }} />
               <MagneticButton as={Link} to="/kontakt" className="btn btn--accent">
-                {text('home.hero.cta')}
-                <span className="btn__arrow" aria-hidden>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M7 17 17 7M9 7h8v8" /></svg>
-                </span>
+                {text('nav.contact')}<Arrow />
               </MagneticButton>
             </div>
           </Reveal>

@@ -1,9 +1,9 @@
-import { useApp, T } from '../lib/store.jsx'
+import { useApp, T, Img } from '../lib/store.jsx'
 import { PageHead } from '../components/Pieces.jsx'
 import Reveal from '../components/Reveal.jsx'
 import Faq from '../components/Faq.jsx'
-import Configurator from '../components/Configurator.jsx'
 
+const BASE = import.meta.env.BASE_URL
 const INS = Array.from({ length: 15 }, (_, i) => `offer.ins${i + 1}`)
 
 export default function Oferta() {
@@ -17,14 +17,12 @@ export default function Oferta() {
       <section className="section" style={{ paddingTop: 20 }}>
         <div className="wrap">
 
-          {/* Configurator — moved up, leads the offer page */}
-          <div style={{ marginBottom: 80 }}>
-            <Reveal>
-              <T as="h2" k="cfg.title" className="title" style={{ marginBottom: 12 }} />
-              <T as="p" k="cfg.sub" className="body-text" style={{ marginBottom: 30 }} />
-            </Reveal>
-            <Reveal><Configurator /></Reveal>
-          </div>
+          {/* Lead photo */}
+          <Reveal>
+            <div className="photo-frame photo-frame--wide" style={{ marginBottom: 70 }}>
+              <Img k="offer.img" fallback={`${BASE}img/audit.webp`} alt={text('offer.title')} />
+            </div>
+          </Reveal>
 
           {['offer.s1', 'offer.s2', 'offer.s3', 'offer.s4'].map((s) => (
             <Reveal key={s}>

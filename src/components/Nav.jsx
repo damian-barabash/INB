@@ -9,7 +9,6 @@ export const LINKS = [
   { to: '/wladze', k: 'nav.management' },
   { to: '/doswiadczenie', k: 'nav.experience' },
   { to: '/oferta', k: 'nav.offer' },
-  { to: '/zamowienia-publiczne', k: 'nav.tenders' },
   { to: '/kontakt', k: 'nav.contact' },
 ]
 
