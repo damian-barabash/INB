@@ -1,6 +1,7 @@
 import { useApp, T } from '../lib/store.jsx'
 import { PageHead } from '../components/Pieces.jsx'
 import Reveal from '../components/Reveal.jsx'
+import Faq from '../components/Faq.jsx'
 
 const INS = Array.from({ length: 15 }, (_, i) => `offer.ins${i + 1}`)
 
@@ -87,6 +88,11 @@ export default function Oferta() {
           <Reveal>
             <T as="p" k="offer.closing" style={{ fontSize: 'clamp(20px,2.6vw,28px)', fontWeight: 600, color: 'var(--ink)', marginTop: 60, maxWidth: 820, lineHeight: 1.4 }} />
           </Reveal>
+
+          <div style={{ marginTop: 90 }}>
+            <Reveal><T as="h2" k="faq.title" className="title" style={{ marginBottom: 30 }} /></Reveal>
+            <Faq />
+          </div>
         </div>
       </section>
     </>

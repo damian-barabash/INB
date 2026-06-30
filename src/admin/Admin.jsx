@@ -7,6 +7,8 @@ import Analytics from './Analytics.jsx'
 import Admins from './Admins.jsx'
 import './admin.css'
 
+const LOGO = `${import.meta.env.BASE_URL}logo.png`
+
 function Login({ onLogin }) {
   const [u, setU] = useState('')
   const [p, setP] = useState('')
@@ -22,7 +24,7 @@ function Login({ onLogin }) {
   return (
     <div className="adm" style={{ alignItems: 'center', justifyContent: 'center' }}>
       <form className="adm-login adm-card" onSubmit={submit}>
-        <div className="adm__brand" style={{ padding: '0 0 18px' }}>IN<b>B</b> · Panel</div>
+        <div className="adm__brand" style={{ padding: '0 0 22px' }}><img src={LOGO} alt="INB" style={{ height: 30 }} /> <span style={{ color: '#6b7686', fontWeight: 600, fontSize: 14 }}>Panel</span></div>
         <label className="adm-label">Login</label>
         <input className="adm-input" value={u} onChange={(e) => setU(e.target.value)} autoFocus style={{ marginBottom: 14 }} />
         <label className="adm-label">Hasło</label>
@@ -46,6 +48,7 @@ export default function Admin() {
   const [admin, setAdmin] = useState(null)
   const [checked, setChecked] = useState(false)
   const [tab, setTab] = useState('editor')
+  const [menu, setMenu] = useState(false)
 
   useEffect(() => { me().then((a) => { setAdmin(a); setChecked(true) }) }, [])
 
@@ -59,11 +62,12 @@ export default function Admin() {
 
   return (
     <div className="adm">
-      <aside className="adm__side">
-        <div className="adm__brand">IN<b>B</b> · Panel</div>
+      {menu && <div className="adm__scrim" onClick={() => setMenu(false)} />}
+      <aside className={`adm__side ${menu ? 'open' : ''}`}>
+        <div className="adm__brand"><img src={LOGO} alt="INB" /> <span style={{ color: '#6b7686', fontWeight: 600, fontSize: 13 }}>Panel</span></div>
         <nav className="adm__nav">
           {allowed.map((t) => (
-            <button key={t.id} className={active.id === t.id ? 'on' : ''} onClick={() => setTab(t.id)}>{t.label}</button>
+            <button key={t.id} className={active.id === t.id ? 'on' : ''} onClick={() => { setTab(t.id); setMenu(false) }}>{t.label}</button>
           ))}
         </nav>
         <div className="adm__spacer" />
@@ -74,6 +78,10 @@ export default function Admin() {
         </div>
       </aside>
       <div className="adm__main">
+        <div className="adm__mtop">
+          <img src={LOGO} alt="INB" />
+          <button className={`adm__burger ${menu ? 'open' : ''}`} aria-label="Menu" onClick={() => setMenu((m) => !m)}><span /><span /></button>
+        </div>
         <div className="adm__bar"><h1>{active.label}</h1></div>
         <div className="adm__content">
           <Active meId={admin.id} />

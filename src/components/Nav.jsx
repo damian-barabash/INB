@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import { useApp } from '../lib/store.jsx'
-import { TENDERS_URL } from '../lib/content.js'
 
 const LOGO = `${import.meta.env.BASE_URL}logo.png`
 
@@ -10,7 +9,7 @@ export const LINKS = [
   { to: '/wladze', k: 'nav.management' },
   { to: '/doswiadczenie', k: 'nav.experience' },
   { to: '/oferta', k: 'nav.offer' },
-  { ext: TENDERS_URL, k: 'nav.tenders' },
+  { to: '/zamowienia-publiczne', k: 'nav.tenders' },
   { to: '/kontakt', k: 'nav.contact' },
 ]
 

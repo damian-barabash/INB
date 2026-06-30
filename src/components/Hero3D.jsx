@@ -52,7 +52,7 @@ function Scene({ mobile }) {
       const targetX = -py * 0.35
       group.current.rotation.y += (targetY - group.current.rotation.y) * Math.min(1, dt * 2)
       group.current.rotation.x += (targetX - group.current.rotation.x) * Math.min(1, dt * 2)
-      group.current.position.x = mobile ? 0 : 2.4
+      group.current.position.x = mobile ? 0 : 3.6
       group.current.position.y = -scrollRef.current * 1.2 + (mobile ? -2.15 : 0)
     }
     if (knot.current && !reduce) {
@@ -61,7 +61,7 @@ function Scene({ mobile }) {
     }
   })
 
-  const knotScale = mobile ? 0.62 : Math.min(1.3, viewport.width / 9)
+  const knotScale = mobile ? 0.62 : Math.min(1.0, viewport.width / 12)
 
   return (
     <group ref={group}>

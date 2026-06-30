@@ -18,13 +18,22 @@ export function AppProvider({ children }) {
   const [token, setToken] = useState(null)
   const [draft, setDraft] = useState({})       // { key: { pl, en } }
   const [draftImg, setDraftImg] = useState({})  // { key: url }
+  const [wipe, setWipe] = useState(null)        // null | 'in' | 'out' — lang switch animation
   const dirty = Object.keys(draft).length > 0 || Object.keys(draftImg).length > 0
 
   const setLang = useCallback((l) => {
-    setLangState(l)
-    localStorage.setItem(LANG_KEY, l)
-    document.documentElement.lang = l
-  }, [])
+    if (l === lang) return
+    const commit = () => {
+      setLangState(l)
+      localStorage.setItem(LANG_KEY, l)
+      document.documentElement.lang = l
+    }
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (reduce) { commit(); return }
+    setWipe('in')
+    setTimeout(() => { commit(); setWipe('out') }, 380)
+    setTimeout(() => setWipe(null), 820)
+  }, [lang])
 
   const reload = useCallback(async () => {
     const { content, images } = await loadPublished()
@@ -84,7 +93,7 @@ export function AppProvider({ children }) {
   }, [token])
 
   const value = {
-    lang, setLang, loaded,
+    lang, setLang, loaded, wipe,
     text, img,
     editing, token, dirty, draft, draftImg,
     setText, enableEditing, disableEditing, save, replaceImg, resetImg, reload,

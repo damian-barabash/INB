@@ -26,8 +26,8 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 input, textarea { font: inherit; }
 ::selection { background: var(--accent); color: #fff; }
 
-.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
-.section { padding: clamp(64px, 10vw, 130px) 0; }
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 32px; }
+.section { padding: clamp(76px, 11vw, 156px) 0; }
 
 /* ---------- type ---------- */
 .kicker {
@@ -106,7 +106,7 @@ h2.title {
 .hero__canvas { position: absolute; inset: 0; z-index: 0; }
 .hero::before {
   content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
-  background: linear-gradient(90deg, var(--bg) 0%, rgba(244,244,241,.55) 30%, transparent 52%);
+  background: linear-gradient(90deg, var(--bg) 0%, var(--bg) 30%, rgba(244,244,241,.72) 46%, transparent 64%);
 }
 .hero__grid { position: relative; z-index: 2; display: grid; grid-template-columns: 1.15fr .85fr; gap: 30px; align-items: center; width: 100%; }
 .hero__lead { max-width: 360px; margin: 22px 0 30px; }
@@ -223,6 +223,40 @@ h2.title {
 .img-edit__btn { background: rgba(3,20,46,.85); color: #fff; font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 8px; }
 .img-edit__btn:hover { background: var(--accent); }
 
+/* ---------- cards auto grid ---------- */
+.cards-auto { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; }
+
+/* ---------- donut chart ---------- */
+.donut { display: grid; grid-template-columns: auto 1fr; gap: clamp(40px, 6vw, 80px); align-items: center; }
+.donut__chart { flex: none; }
+.donut__legend { list-style: none; display: flex; flex-direction: column; gap: 4px; max-width: 460px; }
+.donut__legend li { display: grid; grid-template-columns: auto 1fr auto; gap: 16px; align-items: center; padding: 15px 18px; border-radius: 12px; transition: background .2s, box-shadow .2s; }
+.donut__legend li.on { background: var(--surface); box-shadow: 0 14px 34px -22px rgba(3,20,46,.45); }
+.donut__dot { width: 14px; height: 14px; border-radius: 50%; }
+.donut__name { font-weight: 500; color: var(--ink); }
+.donut__val { font-weight: 800; color: var(--ink); font-variant-numeric: tabular-nums; }
+
+/* ---------- faq ---------- */
+.faq { max-width: 880px; display: flex; flex-direction: column; }
+.faq__item { border-top: 1px solid var(--line); }
+.faq__item:last-child { border-bottom: 1px solid var(--line); }
+.faq__q { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 28px 0; font-size: clamp(17px, 2vw, 21px); font-weight: 600; color: var(--ink); text-align: left; }
+.faq__icon { flex: none; width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--line); display: grid; place-items: center; color: var(--accent); transition: transform .35s var(--ease), background .25s, border-color .25s; }
+.faq__item.open .faq__icon { transform: rotate(180deg); background: var(--accent); color: #fff; border-color: var(--accent); }
+.faq__a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .42s var(--ease); }
+.faq__a p { color: var(--ink-2); padding-bottom: 28px; max-width: 740px; font-size: 16px; }
+
+/* ---------- language wipe ---------- */
+.langwipe {
+  position: fixed; inset: 0; z-index: 300; pointer-events: none; background: var(--accent);
+  display: grid; place-items: center; will-change: clip-path, opacity;
+}
+.langwipe__badge { font-weight: 800; font-size: 16vw; letter-spacing: -0.04em; color: rgba(255,255,255,.18); }
+.langwipe--in { animation: lw-in 0.42s cubic-bezier(.7,0,.3,1) forwards; }
+.langwipe--out { clip-path: circle(160% at 54px 44px); animation: lw-out 0.44s ease forwards; }
+@keyframes lw-in { from { clip-path: circle(0% at 54px 44px); } to { clip-path: circle(160% at 54px 44px); } }
+@keyframes lw-out { from { opacity: 1; } to { opacity: 0; } }
+
 /* ---------- scroll progress ---------- */
 .scrollbar { position: fixed; top: 0; left: 0; height: 3px; background: var(--accent); z-index: 60; width: 0; }
 
@@ -242,4 +276,7 @@ h2.title {
   .contact-grid { grid-template-columns: 1fr; }
   .footer__top { grid-template-columns: 1fr; gap: 32px; }
   .offer-item { grid-template-columns: 1fr; gap: 8px; }
+  .donut { grid-template-columns: 1fr; gap: 32px; justify-items: center; }
+  .donut__legend { max-width: 100%; width: 100%; }
+  .cursor-dot, .cursor-ring { display: none; }
 }

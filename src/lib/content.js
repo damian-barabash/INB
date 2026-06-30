@@ -188,6 +188,54 @@ export const DEFAULTS = {
     en: 'We make every effort to ensure that the services we provide are always individually tailored to the needs and financial resources of our Clients.',
   },
 
+  // ---------- PUBLIC TENDERS (zamówienia publiczne) ----------
+  'zam.title':            { pl: 'Zamówienia publiczne', en: 'Public tenders' },
+  'zam.lead':             {
+    pl: 'Wspieramy jednostki sektora publicznego w przygotowaniu i przeprowadzeniu postępowań na ubezpieczenia, zgodnie z ustawą Prawo zamówień publicznych.',
+    en: 'We support public sector entities in preparing and conducting insurance tenders in accordance with the Public Procurement Law.',
+  },
+  'zam.p1':               {
+    pl: 'Posiadamy wieloletnie doświadczenie w obsłudze programów ubezpieczeniowych dla największych instytucji publicznych, między innymi Straży Granicznej, Izby Celnej oraz Kasy Rolniczego Ubezpieczenia Społecznego. Znamy specyfikę sektora publicznego i wymogi formalne stawiane przez ustawę Prawo zamówień publicznych.',
+    en: 'We have many years of experience servicing insurance programmes for the largest public institutions, including the Border Guard, the Customs Chamber and the Agricultural Social Insurance Fund. We know the specifics of the public sector and the formal requirements of the Public Procurement Law.',
+  },
+  'zam.p2':               {
+    pl: 'Jako broker przygotowujemy opis przedmiotu zamówienia, doradzamy przy wyborze trybu postępowania, wspieramy komisję przetargową na każdym etapie oraz nadzorujemy realizację umowy ubezpieczenia po rozstrzygnięciu postępowania.',
+    en: 'As a broker, we prepare the description of the subject of the contract, advise on the choice of procedure, support the tender committee at every stage and supervise the performance of the insurance contract after the award.',
+  },
+  'zam.c1.title':         { pl: 'Opis przedmiotu zamówienia', en: 'Description of the contract' },
+  'zam.c1.body':          { pl: 'Przygotowanie szczegółowej specyfikacji ochrony ubezpieczeniowej oraz kryteriów oceny ofert.', en: 'Preparation of a detailed specification of insurance protection and bid-evaluation criteria.' },
+  'zam.c2.title':         { pl: 'Doradztwo proceduralne', en: 'Procedural advisory' },
+  'zam.c2.body':          { pl: 'Wybór trybu postępowania i wsparcie merytoryczne zgodne z ustawą Prawo zamówień publicznych.', en: 'Selection of the procedure and substantive support compliant with the Public Procurement Law.' },
+  'zam.c3.title':         { pl: 'Wsparcie komisji przetargowej', en: 'Tender committee support' },
+  'zam.c3.body':          { pl: 'Udział w pracach komisji, ocena ofert oraz przygotowanie wyjaśnień i odpowiedzi dla wykonawców.', en: 'Participation in the committee, bid evaluation and preparation of clarifications and answers for contractors.' },
+  'zam.c4.title':         { pl: 'Nadzór nad realizacją umowy', en: 'Contract supervision' },
+  'zam.c4.body':          { pl: 'Monitoring realizacji umowy ubezpieczenia oraz obsługa i likwidacja szkód po rozstrzygnięciu.', en: 'Monitoring the insurance contract and handling claims after the award.' },
+  'zam.closing':          {
+    pl: 'Zapraszamy jednostki administracji publicznej, spółki komunalne oraz podmioty zobowiązane do stosowania ustawy Prawo zamówień publicznych do współpracy.',
+    en: 'We invite public administration units, municipal companies and entities obliged to apply the Public Procurement Law to cooperate.',
+  },
+
+  // ---------- CHART (donut on Doświadczenie) ----------
+  'chart.title':          { pl: 'Struktura obsługiwanych ubezpieczeń', en: 'Structure of insurance lines we handle' },
+  'chart.sub':            { pl: '15 rodzajów ubezpieczeń w 5 kategoriach — najedź, aby zobaczyć udział.', en: '15 insurance lines across 5 categories — hover to see the share.' },
+  'chart.cat1':           { pl: 'Majątkowe', en: 'Property' },
+  'chart.cat2':           { pl: 'Odpowiedzialność cywilna', en: 'Civil liability' },
+  'chart.cat3':           { pl: 'Komunikacyjne', en: 'Motor' },
+  'chart.cat4':           { pl: 'Finansowe', en: 'Financial' },
+  'chart.cat5':           { pl: 'Zdrowotne i na życie', en: 'Health & life' },
+  'chart.unit':           { pl: 'rodzajów', en: 'lines' },
+
+  // ---------- FAQ (accordion on Oferta) ----------
+  'faq.title':            { pl: 'Najczęstsze pytania', en: 'Frequently asked questions' },
+  'faq.q1':               { pl: 'Ile kosztuje współpraca z brokerem?', en: 'How much does working with a broker cost?' },
+  'faq.a1':               { pl: 'Wynagrodzenie brokera pochodzi z prowizji wypłacanej przez zakład ubezpieczeń — dla naszych Klientów usługi doradcze pozostają bezpłatne.', en: 'The broker’s remuneration comes from a commission paid by the insurer — for our Clients the advisory services remain free of charge.' },
+  'faq.q2':               { pl: 'Czym broker różni się od agenta?', en: 'How is a broker different from an agent?' },
+  'faq.a2':               { pl: 'Broker reprezentuje Klienta i działa w jego interesie, negocjując warunki z wieloma ubezpieczycielami. Agent reprezentuje konkretny zakład ubezpieczeń.', en: 'A broker represents the Client and acts in their interest, negotiating terms with many insurers. An agent represents a specific insurance company.' },
+  'faq.q3':               { pl: 'Jak wygląda rozpoczęcie współpracy?', en: 'What does starting cooperation look like?' },
+  'faq.a3':               { pl: 'Zaczynamy od bezpłatnego audytu obecnej ochrony ubezpieczeniowej i analizy ryzyk, na podstawie których przygotowujemy rekomendacje i koncepcję programu.', en: 'We start with a free audit of the current insurance protection and a risk analysis, on which we base our recommendations and the programme concept.' },
+  'faq.q4':               { pl: 'Czy zajmujecie się likwidacją szkód?', en: 'Do you handle claims settlement?' },
+  'faq.a4':               { pl: 'Tak — zgłaszamy i prowadzimy likwidację szkód osobiście, niezwłocznie po otrzymaniu informacji, dbając o najwyższą wypłatę odszkodowania.', en: 'Yes — we report and handle claims personally, immediately after receiving the information, ensuring the highest possible compensation.' },
+
   // ---------- CONTACT ----------
   'kontakt.title':        { pl: 'Kontakt', en: 'Contact' },
   'kontakt.cta':          { pl: 'Zapraszamy do współpracy', en: 'We invite you to cooperate' },

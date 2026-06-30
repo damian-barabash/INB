@@ -6,6 +6,7 @@ import About from '../pages/About.jsx'
 import Wladze from '../pages/Wladze.jsx'
 import Doswiadczenie from '../pages/Doswiadczenie.jsx'
 import Oferta from '../pages/Oferta.jsx'
+import Zamowienia from '../pages/Zamowienia.jsx'
 import Kontakt from '../pages/Kontakt.jsx'
 import Privacy from '../pages/Privacy.jsx'
 
@@ -15,6 +16,7 @@ const PAGES = [
   { id: 'wladze', label: 'Władze', C: Wladze },
   { id: 'exp', label: 'Doświadczenie', C: Doswiadczenie },
   { id: 'oferta', label: 'Oferta', C: Oferta },
+  { id: 'zam', label: 'Zamówienia publiczne', C: Zamowienia },
   { id: 'kontakt', label: 'Kontakt', C: Kontakt },
   { id: 'privacy', label: 'Polityka prywatności', C: Privacy },
 ]
