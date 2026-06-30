@@ -9,6 +9,7 @@ import Oferta from './pages/Oferta.jsx'
 import Kontakt from './pages/Kontakt.jsx'
 import Zamowienia from './pages/Zamowienia.jsx'
 import Privacy from './pages/Privacy.jsx'
+import NotFound from './pages/NotFound.jsx'
 import Admin from './admin/Admin.jsx'
 
 export default function App() {
@@ -26,7 +27,7 @@ export default function App() {
         <Route path="zamowienia-publiczne" element={<Zamowienia />} />
         <Route path="kontakt" element={<Kontakt />} />
         <Route path="polityka-prywatnosci" element={<Privacy />} />
-        <Route path="*" element={<Home />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
     </>

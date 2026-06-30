@@ -359,6 +359,16 @@ export const DEFAULTS = {
   'tp.s5.title':          { pl: 'Nadzór nad realizacją', en: 'Performance supervision' },
   'tp.s5.body':           { pl: 'Monitorujemy realizację umowy oraz prowadzimy obsługę i likwidację szkód przez cały okres ochrony.', en: 'We monitor the performance of the contract and handle claims throughout the protection period.' },
 
+  // ---------- 404 ----------
+  '404.kicker':           { pl: 'Błąd 404', en: 'Error 404' },
+  '404.title':            { pl: 'Ta strona nie jest objęta ochroną', en: 'This page isn’t covered' },
+  '404.body':             {
+    pl: 'Wygląda na to, że strona, której szukasz, nie istnieje lub została przeniesiona. Nic straconego — wróćmy w bezpieczne miejsce.',
+    en: 'It looks like the page you’re looking for doesn’t exist or has been moved. No worries — let’s get you back to safety.',
+  },
+  '404.cta':              { pl: 'Wróć na stronę główną', en: 'Back to homepage' },
+  '404.links':            { pl: 'Albo przejdź do:', en: 'Or jump to:' },
+
   // ---------- PRIVACY ----------
   'privacy.title':        { pl: 'Polityka prywatności', en: 'Privacy policy' },
   'privacy.body':         {

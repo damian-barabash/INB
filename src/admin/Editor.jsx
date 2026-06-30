@@ -9,6 +9,7 @@ import Oferta from '../pages/Oferta.jsx'
 import Zamowienia from '../pages/Zamowienia.jsx'
 import Kontakt from '../pages/Kontakt.jsx'
 import Privacy from '../pages/Privacy.jsx'
+import NotFound from '../pages/NotFound.jsx'
 
 const PAGES = [
   { id: 'home', label: 'Główna', C: Home },
@@ -19,6 +20,7 @@ const PAGES = [
   { id: 'zam', label: 'Zamówienia publiczne', C: Zamowienia },
   { id: 'kontakt', label: 'Kontakt', C: Kontakt },
   { id: 'privacy', label: 'Polityka prywatności', C: Privacy },
+  { id: '404', label: '404', C: NotFound },
 ]
 
 export default function Editor() {
