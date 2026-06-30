@@ -1,6 +1,7 @@
 import { useApp, T, Img } from '../lib/store.jsx'
 import { PageHead } from '../components/Pieces.jsx'
 import Reveal from '../components/Reveal.jsx'
+import GroupDiagram from '../components/GroupDiagram.jsx'
 
 const BASE = import.meta.env.BASE_URL
 const LIST = ['about.li1', 'about.li2', 'about.li3', 'about.li4', 'about.li5', 'about.li6']
@@ -37,6 +38,17 @@ export default function About() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* GRUPA INB diagram */}
+      <section className="section" style={{ paddingTop: 0 }}>
+        <div className="wrap">
+          <div className="split" style={{ marginBottom: 50, alignItems: 'center' }}>
+            <Reveal><T as="h2" k="group.title" className="title" /></Reveal>
+            <Reveal delay={80}><T as="p" k="group.sub" className="body-text" /></Reveal>
+          </div>
+          <Reveal><GroupDiagram /></Reveal>
         </div>
       </section>
     </>

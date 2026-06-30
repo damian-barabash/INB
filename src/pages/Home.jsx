@@ -4,6 +4,8 @@ import { useApp, T, Img } from '../lib/store.jsx'
 import Reveal from '../components/Reveal.jsx'
 import Stat from '../components/Stat.jsx'
 import MagneticButton from '../components/MagneticButton.jsx'
+import RiskCalc from '../components/RiskCalc.jsx'
+import SafeCanvas from '../components/SafeCanvas.jsx'
 
 const Hero3D = lazy(() => import('../components/Hero3D.jsx'))
 const BASE = import.meta.env.BASE_URL
@@ -51,7 +53,7 @@ export default function Home() {
       <section className="hero">
         {!editing && (
           <div className="hero__canvas">
-            <Suspense fallback={null}><Hero3D mobile={mobile} /></Suspense>
+            <SafeCanvas><Suspense fallback={null}><Hero3D mobile={mobile} /></Suspense></SafeCanvas>
           </div>
         )}
         <div className="wrap hero__grid">
@@ -128,6 +130,17 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* RISK CALCULATOR */}
+      <section className="section" style={{ paddingTop: 0 }}>
+        <div className="wrap">
+          <div className="split" style={{ marginBottom: 46 }}>
+            <Reveal><h2 className="title"><T as="span" k="calc.title" /></h2></Reveal>
+            <Reveal delay={100}><T as="p" k="calc.sub" className="body-text" style={{ alignSelf: 'center' }} /></Reveal>
+          </div>
+          <Reveal><RiskCalc /></Reveal>
         </div>
       </section>
 

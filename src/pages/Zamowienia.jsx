@@ -3,6 +3,7 @@ import { useApp, T } from '../lib/store.jsx'
 import { PageHead } from '../components/Pieces.jsx'
 import Reveal from '../components/Reveal.jsx'
 import MagneticButton from '../components/MagneticButton.jsx'
+import TenderProcess from '../components/TenderProcess.jsx'
 
 const CARDS = [
   { n: '01', t: 'zam.c1.title', b: 'zam.c1.body' },
@@ -23,6 +24,13 @@ export default function Zamowienia() {
             <Reveal><T as="p" k="zam.p1" className="body-text" /></Reveal>
             <Reveal delay={80}><T as="p" k="zam.p2" className="body-text" /></Reveal>
           </div>
+
+          {/* Interactive tender process */}
+          <div className="split" style={{ marginBottom: 40, alignItems: 'center' }}>
+            <Reveal><T as="h2" k="tp.title" className="title" /></Reveal>
+            <Reveal delay={80}><T as="p" k="tp.sub" className="body-text" /></Reveal>
+          </div>
+          <Reveal style={{ marginBottom: 70 }}><TenderProcess /></Reveal>
 
           <div className="cards-auto">
             {CARDS.map((c, i) => (
