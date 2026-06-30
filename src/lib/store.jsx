@@ -31,8 +31,8 @@ export function AppProvider({ children }) {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     if (reduce) { commit(); return }
     setWipe('in')
-    setTimeout(() => { commit(); setWipe('out') }, 380)
-    setTimeout(() => setWipe(null), 820)
+    setTimeout(() => { commit(); setWipe('out') }, 650)
+    setTimeout(() => setWipe(null), 1450)
   }, [lang])
 
   const reload = useCallback(async () => {

@@ -251,11 +251,12 @@ h2.title {
   position: fixed; inset: 0; z-index: 300; pointer-events: none; background: var(--accent);
   display: grid; place-items: center; will-change: clip-path, opacity;
 }
-.langwipe__badge { font-weight: 800; font-size: 16vw; letter-spacing: -0.04em; color: rgba(255,255,255,.18); }
-.langwipe--in { animation: lw-in 0.42s cubic-bezier(.7,0,.3,1) forwards; }
-.langwipe--out { clip-path: circle(160% at 54px 44px); animation: lw-out 0.44s ease forwards; }
-@keyframes lw-in { from { clip-path: circle(0% at 54px 44px); } to { clip-path: circle(160% at 54px 44px); } }
+.langwipe__badge { font-weight: 800; font-size: 17vw; letter-spacing: -0.04em; color: rgba(255,255,255,.2); animation: lw-badge 1.2s var(--ease); }
+.langwipe--in { animation: lw-in 0.66s cubic-bezier(.65,0,.35,1) forwards; }
+.langwipe--out { clip-path: circle(165% at 54px 44px); animation: lw-out 0.7s cubic-bezier(.4,0,.2,1) forwards; }
+@keyframes lw-in { from { clip-path: circle(0% at 54px 44px); } to { clip-path: circle(165% at 54px 44px); } }
 @keyframes lw-out { from { opacity: 1; } to { opacity: 0; } }
+@keyframes lw-badge { 0% { transform: scale(.82); opacity: 0; } 35% { opacity: 1; } 100% { transform: scale(1); opacity: 1; } }
 
 /* ---------- scroll progress ---------- */
 .scrollbar { position: fixed; top: 0; left: 0; height: 3px; background: var(--accent); z-index: 60; width: 0; }
@@ -280,3 +281,6 @@ h2.title {
   .donut__legend { max-width: 100%; width: 100%; }
   .cursor-dot, .cursor-ring { display: none; }
 }
+
+/* ---------- sharp corners — no border-radius anywhere ---------- */
+*, *::before, *::after { border-radius: 0 !important; }
