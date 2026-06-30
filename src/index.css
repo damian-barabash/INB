@@ -141,6 +141,7 @@ h2.title {
 
 /* ---------- why / split ---------- */
 .split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 6vw, 90px); align-items: start; }
+.wladze-hero { grid-template-columns: .8fr 1.2fr; }
 
 /* belief / statement blocks */
 .statements { display: flex; flex-direction: column; }
@@ -463,9 +464,8 @@ h2.title {
   transition: opacity .6s var(--ease), transform .6s var(--ease);
 }
 .statements--anim .statement.in .statement__k { opacity: 1; transform: none; }
-.stm-word { display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: .14em; margin-bottom: -.14em; }
-.stm-word__in { display: inline-block; transform: translateY(118%); transition: transform .72s var(--ease); will-change: transform; }
-.statement.in .stm-word__in { transform: none; }
+.statements--anim .stm-word { display: inline-block; opacity: 0; transform: translateY(.55em); transition: opacity .55s var(--ease), transform .6s var(--ease); will-change: transform, opacity; }
+.statements--anim .statement.in .stm-word { opacity: 1; transform: none; }
 
 /* ---------- sharp corners — no border-radius anywhere ---------- */
 *, *::before, *::after { border-radius: 0 !important; }

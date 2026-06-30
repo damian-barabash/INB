@@ -12,7 +12,7 @@ export default function Wladze() {
       <PageHead titleKey="wladze.title" />
       <section className="section" style={{ paddingTop: 30 }}>
         <div className="wrap">
-          <div className="split" style={{ gridTemplateColumns: '.8fr 1.2fr' }}>
+          <div className="split wladze-hero">
             <Reveal>
               <div style={{ borderRadius: 'var(--radius)', overflow: 'hidden', background: 'var(--navy)', aspectRatio: '3/4' }}>
                 <Img k="wladze.img" fallback={`${BASE}img/portrait.webp`} alt={text('wladze.name')} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />

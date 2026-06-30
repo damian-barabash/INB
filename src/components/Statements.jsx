@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { Fragment, useEffect, useRef, useState } from 'react'
 import { useApp, T } from '../lib/store.jsx'
 
 const STATEMENTS = [
@@ -30,10 +30,10 @@ function Row({ item, index }) {
       <div className="statement__k">{item.label}</div>
       <p className="statement__t">
         {words.map((w, i) => (
-          <span key={i} className="stm-word">
-            <span className="stm-word__in" style={{ transitionDelay: `${index * 60 + i * 32}ms` }}>{w}</span>
+          <Fragment key={i}>
+            <span className="stm-word" style={{ transitionDelay: `${index * 50 + i * 28}ms` }}>{w}</span>
             {i < words.length - 1 ? ' ' : ''}
-          </span>
+          </Fragment>
         ))}
       </p>
     </div>
