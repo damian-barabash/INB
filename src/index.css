@@ -74,7 +74,7 @@ h2.title {
 .nav--solid { background: rgba(244,244,241,.82); backdrop-filter: blur(14px); box-shadow: 0 1px 0 var(--line); padding: 14px 0; }
 .nav__inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .brand { display: flex; align-items: center; gap: 0; }
-.brand img { height: 30px; width: auto; }
+.brand img { height: 38px; width: auto; }
 .nav__links { display: flex; align-items: center; gap: 30px; }
 .nav__links a { font-size: 14.5px; font-weight: 500; color: var(--ink-2); position: relative; padding: 4px 0; transition: color .2s; }
 .nav__links a:hover, .nav__links a.active { color: var(--ink); }
@@ -191,7 +191,7 @@ h2.title {
 /* ---------- footer ---------- */
 .footer { background: var(--navy); color: #fff; padding: 70px 0 34px; margin-top: 60px; }
 .footer__top { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; }
-.footer .brand img { height: 34px; }
+.footer .brand img { height: 40px; }
 .footer__tag { color: rgba(255,255,255,.6); margin-top: 18px; max-width: 280px; font-size: 15px; }
 .footer h4 { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
 .footer__links { display: flex; flex-direction: column; gap: 9px; }
@@ -318,7 +318,7 @@ h2.title {
 
 /* ---------- group diagram (about) ---------- */
 .gd { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(24px, 4vw, 50px); align-items: center; }
-.gd__stage { position: relative; aspect-ratio: 1.5 / 1; min-height: 300px; }
+.gd__stage { position: relative; aspect-ratio: 2 / 1; min-height: 260px; }
 .gd__links { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
 .gd__link { stroke: var(--line); stroke-width: .4; vector-effect: non-scaling-stroke; transition: stroke .3s; }
 .gd__link.on { stroke: var(--accent); stroke-width: 1.2; }
@@ -449,6 +449,23 @@ h2.title {
   .tpr__cap { text-align: left; max-width: none; }
   .wiz__label { display: none; }
 }
+
+/* ---------- statements word-stagger reveal (home) ---------- */
+.statements--anim .statement { position: relative; }
+.statements--anim .statement::after {
+  content: ''; position: absolute; top: -1px; left: 0; width: 100%; height: 2px;
+  background: var(--accent); transform: scaleX(0); transform-origin: left; opacity: 0;
+}
+.statements--anim .statement.in::after { animation: stm-sweep 1.15s var(--ease) forwards; }
+@keyframes stm-sweep { 0% { transform: scaleX(0); opacity: 1; } 55% { transform: scaleX(1); opacity: 1; } 100% { transform: scaleX(1); opacity: 0; } }
+.statements--anim .statement__k {
+  opacity: 0; transform: translateX(-14px);
+  transition: opacity .6s var(--ease), transform .6s var(--ease);
+}
+.statements--anim .statement.in .statement__k { opacity: 1; transform: none; }
+.stm-word { display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: .14em; margin-bottom: -.14em; }
+.stm-word__in { display: inline-block; transform: translateY(118%); transition: transform .72s var(--ease); will-change: transform; }
+.statement.in .stm-word__in { transform: none; }
 
 /* ---------- sharp corners — no border-radius anywhere ---------- */
 *, *::before, *::after { border-radius: 0 !important; }

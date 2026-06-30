@@ -24,9 +24,24 @@ export default function About() {
               </div>
             </Reveal>
           </div>
+        </div>
+      </section>
 
+      {/* GRUPA INB diagram — moved up, right after intro */}
+      <section className="section" style={{ paddingTop: 0 }}>
+        <div className="wrap">
+          <div className="split" style={{ marginBottom: 40, alignItems: 'center' }}>
+            <Reveal><T as="h2" k="group.title" className="title" /></Reveal>
+            <Reveal delay={80}><T as="p" k="group.sub" className="body-text" /></Reveal>
+          </div>
+          <Reveal><GroupDiagram /></Reveal>
+        </div>
+      </section>
+
+      <section className="section" style={{ paddingTop: 0 }}>
+        <div className="wrap">
           <Reveal>
-            <h2 className="title" style={{ margin: '70px 0 30px' }}><T as="span" k="about.list.title" /></h2>
+            <h2 className="title" style={{ margin: '0 0 30px' }}><T as="span" k="about.list.title" /></h2>
           </Reveal>
           <div className="chips" style={{ gap: 14 }}>
             {LIST.map((k, i) => (
@@ -38,17 +53,6 @@ export default function About() {
               </Reveal>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* GRUPA INB diagram */}
-      <section className="section" style={{ paddingTop: 0 }}>
-        <div className="wrap">
-          <div className="split" style={{ marginBottom: 50, alignItems: 'center' }}>
-            <Reveal><T as="h2" k="group.title" className="title" /></Reveal>
-            <Reveal delay={80}><T as="p" k="group.sub" className="body-text" /></Reveal>
-          </div>
-          <Reveal><GroupDiagram /></Reveal>
         </div>
       </section>
     </>

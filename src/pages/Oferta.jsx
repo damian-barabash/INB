@@ -17,6 +17,15 @@ export default function Oferta() {
       <section className="section" style={{ paddingTop: 20 }}>
         <div className="wrap">
 
+          {/* Configurator — moved up, leads the offer page */}
+          <div style={{ marginBottom: 80 }}>
+            <Reveal>
+              <T as="h2" k="cfg.title" className="title" style={{ marginBottom: 12 }} />
+              <T as="p" k="cfg.sub" className="body-text" style={{ marginBottom: 30 }} />
+            </Reveal>
+            <Reveal><Configurator /></Reveal>
+          </div>
+
           {['offer.s1', 'offer.s2', 'offer.s3', 'offer.s4'].map((s) => (
             <Reveal key={s}>
               <div className="offer-item">
@@ -89,15 +98,6 @@ export default function Oferta() {
           <Reveal>
             <T as="p" k="offer.closing" style={{ fontSize: 'clamp(20px,2.6vw,28px)', fontWeight: 600, color: 'var(--ink)', marginTop: 60, maxWidth: 820, lineHeight: 1.4 }} />
           </Reveal>
-
-          {/* Configurator */}
-          <div style={{ marginTop: 90 }}>
-            <Reveal>
-              <T as="h2" k="cfg.title" className="title" style={{ marginBottom: 12 }} />
-              <T as="p" k="cfg.sub" className="body-text" style={{ marginBottom: 30 }} />
-            </Reveal>
-            <Reveal><Configurator /></Reveal>
-          </div>
 
           <div style={{ marginTop: 90 }}>
             <Reveal><T as="h2" k="faq.title" className="title" style={{ marginBottom: 30 }} /></Reveal>

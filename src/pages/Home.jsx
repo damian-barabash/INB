@@ -6,17 +6,10 @@ import Stat from '../components/Stat.jsx'
 import MagneticButton from '../components/MagneticButton.jsx'
 import RiskCalc from '../components/RiskCalc.jsx'
 import SafeCanvas from '../components/SafeCanvas.jsx'
+import Statements from '../components/Statements.jsx'
 
 const Hero3D = lazy(() => import('../components/Hero3D.jsx'))
 const BASE = import.meta.env.BASE_URL
-
-const STATEMENTS = [
-  { k: 'home.belief', label: '01 / wiedza' },
-  { k: 'home.group', label: '02 / grupa INB' },
-  { k: 'home.offer', label: '03 / technologie' },
-  { k: 'home.team', label: '04 / zespół' },
-  { k: 'home.cooperation', label: '05 / współpraca' },
-]
 
 const CARDS = [
   { n: '01', t: 'home.card1.title', b: 'home.card1.body', img: 'home.card1.img', fb: `${BASE}img/card-audit.webp` },
@@ -101,16 +94,7 @@ export default function Home() {
             <Reveal><h2 className="title"><T as="span" k="home.why.title" /></h2></Reveal>
             <Reveal delay={100}><T as="p" k="home.team" className="body-text" style={{ alignSelf: 'center' }} /></Reveal>
           </div>
-          <div className="statements">
-            {STATEMENTS.map((s, i) => (
-              <Reveal key={s.k} delay={i * 60}>
-                <div className="statement">
-                  <div className="statement__k">{s.label}</div>
-                  <T as="p" k={s.k} className="statement__t" />
-                </div>
-              </Reveal>
-            ))}
-          </div>
+          <Statements />
         </div>
       </section>
 

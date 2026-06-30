@@ -15,26 +15,30 @@ export default function Doswiadczenie() {
             <Reveal><T as="p" k="exp.p1" className="lead" style={{ marginBottom: 26 }} /></Reveal>
             <Reveal delay={80}><T as="p" k="exp.p2" className="body-text" /></Reveal>
           </div>
+        </div>
+      </section>
 
+      {/* Interactive donut — moved up, right after intro */}
+      <section className="section" style={{ paddingTop: 0 }}>
+        <div className="wrap">
+          <div className="split" style={{ marginBottom: 40, alignItems: 'center' }}>
+            <Reveal><T as="h2" k="chart.title" className="title" /></Reveal>
+            <Reveal delay={80}><T as="p" k="chart.sub" className="body-text" /></Reveal>
+          </div>
+          <Reveal><Donut /></Reveal>
+        </div>
+      </section>
+
+      <section className="section" style={{ paddingTop: 0 }}>
+        <div className="wrap">
           <Reveal>
-            <div className="stats" style={{ marginTop: 80, borderTop: '1px solid var(--line)', paddingTop: 54 }}>
+            <div className="stats" style={{ borderTop: '1px solid var(--line)', paddingTop: 54 }}>
               <Stat value={text('home.stat1.num')} label={text('home.stat1.label')} />
               <Stat value={text('home.stat2.num')} label={text('home.stat2.label')} />
               <Stat value={text('home.stat3.num')} label={text('home.stat3.label')} />
               <Stat value={text('home.stat4.num')} label={text('home.stat4.label')} />
             </div>
           </Reveal>
-        </div>
-      </section>
-
-      {/* Interactive donut */}
-      <section className="section" style={{ paddingTop: 0 }}>
-        <div className="wrap">
-          <div className="split" style={{ marginBottom: 50, alignItems: 'center' }}>
-            <Reveal><T as="h2" k="chart.title" className="title" /></Reveal>
-            <Reveal delay={80}><T as="p" k="chart.sub" className="body-text" /></Reveal>
-          </div>
-          <Reveal><Donut /></Reveal>
         </div>
       </section>
     </>
