@@ -1,8 +1,10 @@
-import { useApp, T } from '../lib/store.jsx'
+import { useApp, T, Img } from '../lib/store.jsx'
 import { PageHead } from '../components/Pieces.jsx'
 import Reveal from '../components/Reveal.jsx'
 import Stat from '../components/Stat.jsx'
 import Donut from '../components/Donut.jsx'
+
+const BASE = import.meta.env.BASE_URL
 
 export default function Doswiadczenie() {
   const { text } = useApp()
@@ -11,9 +13,23 @@ export default function Doswiadczenie() {
       <PageHead titleKey="exp.title" />
       <section className="section" style={{ paddingTop: 30 }}>
         <div className="wrap">
-          <div style={{ maxWidth: 880 }}>
-            <Reveal><T as="p" k="exp.p1" className="lead" style={{ marginBottom: 26 }} /></Reveal>
-            <Reveal delay={80}><T as="p" k="exp.p2" className="body-text" /></Reveal>
+          <div className="split exp-intro" style={{ alignItems: 'center' }}>
+            <div>
+              <Reveal><T as="p" k="exp.p1" className="lead" style={{ marginBottom: 26 }} /></Reveal>
+              <Reveal delay={80}><T as="p" k="exp.p2" className="body-text" /></Reveal>
+            </div>
+            <Reveal delay={120}>
+              <div className="exp-media">
+                <span className="exp-media__block" aria-hidden />
+                <div className="photo-frame exp-media__photo">
+                  <Img k="exp.img" fallback={`${BASE}img/experience.webp`} alt={text('exp.title')} />
+                </div>
+                <div className="exp-media__badge">
+                  <span className="exp-media__badge-num">{text('home.stat1.num')}</span>
+                  <span className="exp-media__badge-label">{text('home.stat1.label')}</span>
+                </div>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>

@@ -75,7 +75,7 @@ h2.title {
 .nav--solid { background: rgba(244,244,241,.82); backdrop-filter: blur(14px); box-shadow: 0 1px 0 var(--line); padding: 14px 0; }
 .nav__inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .brand { display: flex; align-items: center; gap: 0; }
-.brand img { height: 38px; width: auto; }
+.brand img { height: 50px; width: auto; }
 .nav__links { display: flex; align-items: center; gap: 30px; }
 .nav__links a { font-size: 14.5px; font-weight: 500; color: var(--ink-2); position: relative; padding: 4px 0; transition: color .2s; }
 .nav__links a:hover, .nav__links a.active { color: var(--ink); }
@@ -193,7 +193,7 @@ h2.title {
 /* ---------- footer ---------- */
 .footer { background: var(--navy); color: #fff; padding: 70px 0 34px; margin-top: 60px; }
 .footer__top { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; }
-.footer .brand img { height: 40px; }
+.footer .brand img { height: 54px; }
 .footer__tag { color: rgba(255,255,255,.6); margin-top: 18px; max-width: 280px; font-size: 15px; }
 .footer h4 { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
 .footer__links { display: flex; flex-direction: column; gap: 9px; }
@@ -482,6 +482,22 @@ h2.title {
 .photo-frame, .photo-frame .img-edit, .photo-frame img { width: 100%; height: 100%; }
 .photo-frame img { object-fit: cover; display: block; transition: transform .9s var(--ease); }
 .photo-frame:hover img { transform: scale(1.045); }
+
+/* ---------- experience intro media (offset block + badge) ---------- */
+.exp-media { position: relative; }
+.exp-media__block { position: absolute; z-index: 0; right: -20px; bottom: -20px; width: 64%; height: 66%; background: var(--accent-2); }
+.exp-media__photo { position: relative; z-index: 1; aspect-ratio: 4 / 5; box-shadow: 0 30px 60px -32px rgba(3,20,46,.5); }
+.exp-media__badge {
+  position: absolute; z-index: 2; left: -18px; bottom: 30px; background: var(--navy); color: #fff;
+  padding: 18px 22px; display: flex; flex-direction: column; gap: 4px; box-shadow: 0 20px 44px -22px rgba(3,20,46,.6);
+}
+.exp-media__badge-num { font-size: 34px; font-weight: 800; letter-spacing: -0.02em; color: var(--accent); line-height: 1; }
+.exp-media__badge-label { font-size: 12px; letter-spacing: .04em; color: rgba(255,255,255,.75); max-width: 150px; }
+@media (max-width: 940px) {
+  .exp-media { max-width: 440px; margin: 10px auto 0; }
+  .exp-media__block { right: -12px; bottom: -12px; }
+  .exp-media__badge { left: 0; }
+}
 
 /* ---------- closing CTA band ---------- */
 .cta-band {
