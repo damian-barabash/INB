@@ -68,7 +68,7 @@ export default function Home() {
       </section>
 
       {/* STATS */}
-      <section className="section" style={{ paddingTop: 'clamp(60px,8vw,110px)' }}>
+      <section className="section" style={{ paddingTop: 'clamp(36px,5vw,64px)' }}>
         <div className="wrap">
           <Reveal className="stats">
             {STATS.map(([n, l]) => <Stat key={n} value={text(n)} label={text(l)} />)}
@@ -79,7 +79,7 @@ export default function Home() {
       {/* WHY / STATEMENTS */}
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="wrap">
-          <div className="split" style={{ marginBottom: 50 }}>
+          <div className="split" style={{ marginBottom: 34 }}>
             <Reveal><h2 className="title"><T as="span" k="home.why.title" /></h2></Reveal>
             <Reveal delay={100}><T as="p" k="home.team" className="body-text" style={{ alignSelf: 'center' }} /></Reveal>
           </div>

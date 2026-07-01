@@ -7,6 +7,7 @@
   --line: #e3e3dd;
   --accent: #f29200;
   --accent-ink: #c47700;
+  --accent-2: #00007c;
   --navy: #03142e;
   --radius: 18px;
   --maxw: 1200px;
@@ -27,7 +28,7 @@ input, textarea { font: inherit; }
 ::selection { background: var(--accent); color: #fff; }
 
 .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 32px; }
-.section { padding: clamp(76px, 11vw, 156px) 0; }
+.section { padding: clamp(48px, 6.5vw, 90px) 0; }
 
 /* ---------- type ---------- */
 .kicker {
@@ -155,9 +156,9 @@ h2.title {
 
 /* process timeline */
 .process { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; counter-reset: step; }
-.pstep { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 30px; transition: transform .4s var(--ease), box-shadow .4s; }
-.pstep:hover { transform: translateY(-6px); box-shadow: 0 24px 50px -28px rgba(3,20,46,.35); }
-.pstep__n { font-size: 13px; font-weight: 700; color: var(--accent); letter-spacing: .1em; }
+.pstep { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 30px; transition: transform .4s var(--ease), box-shadow .4s, border-color .3s; }
+.pstep:hover { transform: translateY(-6px); box-shadow: 0 24px 50px -28px rgba(0,0,124,.3); border-color: var(--accent-2); }
+.pstep__n { font-size: 13px; font-weight: 700; color: var(--accent-2); letter-spacing: .1em; }
 .pstep__t { font-size: 20px; font-weight: 700; margin: 14px 0 8px; }
 .pstep__b { color: var(--muted); font-size: 15px; }
 
@@ -212,7 +213,7 @@ h2.title {
 @media (hover: none) { .cursor-dot, .cursor-ring { display: none; } }
 
 /* ---------- page header ---------- */
-.page-head { padding: clamp(120px, 16vw, 190px) 0 30px; }
+.page-head { padding: clamp(108px, 12vw, 150px) 0 24px; }
 .page-head .display { font-size: clamp(40px, 7vw, 84px); }
 .breadcrumb { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 18px; }
 
@@ -452,21 +453,20 @@ h2.title {
   .wiz__label { display: none; }
 }
 
-/* ---------- statements word-stagger reveal (home) ---------- */
-.statements--anim .statement { position: relative; }
-.statements--anim .statement::after {
-  content: ''; position: absolute; top: -1px; left: 0; width: 100%; height: 2px;
-  background: var(--accent); transform: scaleX(0); transform-origin: left; opacity: 0;
+/* ---------- statements compact card grid (home) ---------- */
+.stmt-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.stmt-card {
+  background: var(--surface); border: 1px solid var(--line); padding: 24px 22px;
+  display: flex; flex-direction: column; gap: 12px; height: 100%;
+  transition: border-color .3s var(--ease), transform .35s var(--ease), box-shadow .35s var(--ease);
 }
-.statements--anim .statement.in::after { animation: stm-sweep 1.15s var(--ease) forwards; }
-@keyframes stm-sweep { 0% { transform: scaleX(0); opacity: 1; } 55% { transform: scaleX(1); opacity: 1; } 100% { transform: scaleX(1); opacity: 0; } }
-.statements--anim .statement__k {
-  opacity: 0; transform: translateX(-14px);
-  transition: opacity .6s var(--ease), transform .6s var(--ease);
-}
-.statements--anim .statement.in .statement__k { opacity: 1; transform: none; }
-.statements--anim .stm-word { display: inline-block; opacity: 0; transform: translateY(.55em); transition: opacity .55s var(--ease), transform .6s var(--ease); will-change: transform, opacity; }
-.statements--anim .statement.in .stm-word { opacity: 1; transform: none; }
+.stmt-card:hover { border-color: var(--accent-2); transform: translateY(-4px); box-shadow: 0 22px 44px -28px rgba(0,0,124,.28); }
+.stmt-card__top { display: flex; align-items: center; gap: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.stmt-card__num { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; color: var(--accent-2); line-height: 1; }
+.stmt-card__label { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--ink); }
+.stmt-card__text { font-size: 15px; color: var(--ink-2); line-height: 1.5; }
+@media (max-width: 900px) { .stmt-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .stmt-grid { grid-template-columns: 1fr; } }
 
 /* ---------- hero photo background ---------- */
 .hero__bg { position: absolute; inset: 0; z-index: 0; }
