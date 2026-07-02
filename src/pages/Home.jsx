@@ -26,6 +26,8 @@ const STATS = [
   ['home.stat4.num', 'home.stat4.label'],
 ]
 
+const INS = Array.from({ length: 15 }, (_, i) => `offer.ins${i + 1}`)
+
 const Arrow = () => (
   <span className="btn__arrow" aria-hidden>
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M7 17 17 7M9 7h8v8" /></svg>
@@ -37,53 +39,104 @@ export default function Home() {
 
   return (
     <>
-      {/* HERO — photo background */}
-      <section className="hero hero--photo">
-        <div className="hero__bg">
-          <Img k="home.hero.bg" fallback={`${BASE}img/hero.webp`} alt="" />
-        </div>
-        <div className="wrap hero__grid">
-          <div>
-            <Reveal><div className="kicker">{text('home.hero.kicker')}</div></Reveal>
-            <Reveal delay={80}>
-              <h1 className="display" style={{ marginTop: 20 }}>
-                <T as="span" k="home.hero.title1" style={{ display: 'block', color: 'var(--ink)' }} />
-                <T as="span" k="home.hero.title2" style={{ display: 'block', color: 'var(--accent)' }} />
-              </h1>
-            </Reveal>
-            <Reveal delay={160}><T as="p" k="home.hero.lead" className="lead hero__lead" /></Reveal>
-            <Reveal delay={220}>
-              <MagneticButton as={Link} to="/kontakt" className="btn btn--accent">
-                {text('home.hero.cta')}<Arrow />
-              </MagneticButton>
-              <div className="hero__socials">
-                <a href="mailto:biuro@inbi.pl" aria-label="E-mail">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></svg>
-                </a>
-                <a href="tel:+48223271655" aria-label="Telefon" className="hero__phone">+48 22 327 16 55</a>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* STATS */}
-      <section className="section" style={{ paddingTop: 'clamp(36px,5vw,64px)' }}>
+      {/* HERO — framed photo card */}
+      <section className="hero">
         <div className="wrap">
-          <Reveal className="stats">
-            {STATS.map(([n, l]) => <Stat key={n} value={text(n)} label={text(l)} />)}
+          <Reveal>
+            <div className="hero__frame">
+              <div className="hero__bg">
+                <Img k="home.hero.bg" fallback={`${BASE}img/hero.webp`} alt="" />
+              </div>
+              <div className="hero__content">
+                <div className="kicker kicker--light">{text('home.hero.kicker')}</div>
+                <h1 className="display" style={{ marginTop: 18 }}>
+                  <T as="span" k="home.hero.title1" style={{ display: 'block' }} />
+                  <T as="span" k="home.hero.title2" style={{ display: 'block', color: 'var(--accent)' }} />
+                </h1>
+                <T as="p" k="home.hero.lead" className="lead hero__lead" />
+                <div className="hero__actions">
+                  <MagneticButton as={Link} to="/kontakt" className="btn btn--white">
+                    {text('home.hero.cta')}<Arrow />
+                  </MagneticButton>
+                  <a href="tel:+48223271655" className="hero__phone">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
+                    +48 22 327 16 55
+                  </a>
+                </div>
+              </div>
+              <div className="hero__badge">
+                <span className="hero__badge-num">{text('home.stat1.num')}</span>
+                <span className="hero__badge-label">{text('home.stat1.label')}</span>
+              </div>
+            </div>
           </Reveal>
         </div>
       </section>
 
-      {/* WHY / STATEMENTS */}
+      {/* WHY + STATS 2×2 */}
+      <section className="section">
+        <div className="wrap">
+          <div className="split" style={{ alignItems: 'center' }}>
+            <div>
+              <Reveal><div className="kicker" style={{ marginBottom: 20 }}>{text('home.why.kicker')}</div></Reveal>
+              <Reveal delay={60}><h2 className="title" style={{ marginBottom: 20 }}><T as="span" k="home.why.title" /></h2></Reveal>
+              <Reveal delay={120}><T as="p" k="home.team" className="body-text" /></Reveal>
+            </div>
+            <Reveal delay={140} className="stats stats--grid2">
+              {STATS.map(([n, l]) => <Stat key={n} value={text(n)} label={text(l)} />)}
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* STATEMENTS — navy cards, one accent */}
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="wrap">
-          <div className="split" style={{ marginBottom: 34 }}>
-            <Reveal><h2 className="title"><T as="span" k="home.why.title" /></h2></Reveal>
-            <Reveal delay={100}><T as="p" k="home.team" className="body-text" style={{ alignSelf: 'center' }} /></Reveal>
-          </div>
           <Statements />
+        </div>
+      </section>
+
+      {/* SERVICE CARDS — catalog style */}
+      <section className="section" style={{ paddingTop: 0 }}>
+        <div className="wrap">
+          <Reveal><div className="kicker" style={{ marginBottom: 28 }}>{text('home.services.kicker')}</div></Reveal>
+          <div className="cards3">
+            {CARDS.map((c, i) => (
+              <Reveal key={c.n} delay={i * 90}>
+                <article className="scard">
+                  <div className="scard__img">
+                    <span className="scard__num">{c.n}</span>
+                    <Img k={c.img} fallback={c.fb} alt={text(c.t)} />
+                  </div>
+                  <T as="h3" k={c.t} className="scard__title" />
+                  <T as="p" k={c.b} className="scard__body" />
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* INSURANCE LINES MARQUEE */}
+      <section className="section" style={{ paddingTop: 0 }}>
+        <div className="wrap">
+          <Reveal>
+            <div className="ins-band">
+              <div className="ins-band__head">
+                <div className="kicker">{text('home.ins.kicker')}</div>
+                <Link to="/oferta" className="ins-band__link">
+                  {text('home.ins.cta')}
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M7 17 17 7M9 7h8v8" /></svg>
+                </Link>
+              </div>
+              <div className="marquee">
+                <div className="marquee__track">
+                  {INS.map((k) => <span key={k} className="chip">{text(k)}</span>)}
+                  {INS.map((k) => <span key={`${k}-b`} className="chip" aria-hidden>{text(k)}</span>)}
+                </div>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -101,25 +154,6 @@ export default function Home() {
                 {text('nav.experience')}<Arrow />
               </MagneticButton>
             </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* SERVICE CARDS */}
-      <section className="section" style={{ paddingTop: 0 }}>
-        <div className="wrap">
-          <Reveal><div className="kicker" style={{ marginBottom: 28 }}>Nasze usługi</div></Reveal>
-          <div className="cards3">
-            {CARDS.map((c, i) => (
-              <Reveal key={c.n} delay={i * 90}>
-                <article className="scard">
-                  <div className="scard__img"><Img k={c.img} fallback={c.fb} alt={text(c.t)} /></div>
-                  <div className="scard__num">{c.n}</div>
-                  <T as="h3" k={c.t} className="scard__title" />
-                  <T as="p" k={c.b} className="scard__body" />
-                </article>
-              </Reveal>
-            ))}
           </div>
         </div>
       </section>
@@ -143,7 +177,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PROCESS */}
+      {/* PROCESS — photo + numbered rows */}
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="wrap">
           <div className="split" style={{ marginBottom: 46 }}>
@@ -151,15 +185,22 @@ export default function Home() {
             <Reveal delay={100}><T as="p" k="home.process.sub" className="body-text" style={{ alignSelf: 'center' }} /></Reveal>
           </div>
           <div className="process">
-            {STEPS.map((s, i) => (
-              <Reveal key={s.n} delay={i * 90}>
-                <div className="pstep">
-                  <div className="pstep__n">STEP {s.n}</div>
-                  <T as="h3" k={s.t} className="pstep__t" />
-                  <T as="p" k={s.b} className="pstep__b" />
-                </div>
-              </Reveal>
-            ))}
+            <Reveal className="process__media">
+              <div className="photo-frame"><Img k="home.process.img" fallback={`${BASE}img/experience.webp`} alt={text('home.process.title')} /></div>
+            </Reveal>
+            <div className="process__rows">
+              {STEPS.map((s, i) => (
+                <Reveal key={s.n} delay={i * 90}>
+                  <div className="prow">
+                    <span className="prow__n">{s.n}</span>
+                    <div>
+                      <T as="h3" k={s.t} className="prow__t" />
+                      <T as="p" k={s.b} className="prow__b" />
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -169,7 +210,7 @@ export default function Home() {
         <div className="wrap">
           <Reveal>
             <div className="cta-band">
-              <T as="p" k="home.closing" style={{ fontSize: 'clamp(20px,2.6vw,30px)', fontWeight: 600, maxWidth: 760, lineHeight: 1.35 }} />
+              <T as="p" k="home.closing" style={{ fontFamily: 'var(--display)', fontSize: 'clamp(20px,2.6vw,30px)', fontWeight: 600, maxWidth: 760, lineHeight: 1.35 }} />
               <MagneticButton as={Link} to="/kontakt" className="btn btn--accent">
                 {text('nav.contact')}<Arrow />
               </MagneticButton>

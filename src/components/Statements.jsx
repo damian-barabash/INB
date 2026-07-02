@@ -9,9 +9,9 @@ const STATEMENTS = [
   { k: 'home.cooperation', num: '05', label: 'Współpraca' },
 ]
 
-function Card({ s }) {
+function Card({ s, accent }) {
   return (
-    <div className="stmt-card">
+    <div className={`stmt-card${accent ? ' stmt-card--accent' : ''}`}>
       <div className="stmt-card__top">
         <span className="stmt-card__num">{s.num}</span>
         <span className="stmt-card__label">{s.label}</span>
@@ -27,7 +27,7 @@ export default function Statements() {
   if (editing) {
     return (
       <div className="stmt-grid">
-        {STATEMENTS.map((s) => <Card key={s.k} s={s} />)}
+        {STATEMENTS.map((s, i) => <Card key={s.k} s={s} accent={i === 2} />)}
       </div>
     )
   }
@@ -35,7 +35,7 @@ export default function Statements() {
   return (
     <div className="stmt-grid">
       {STATEMENTS.map((s, i) => (
-        <Reveal key={s.k} delay={i * 70}><Card s={s} /></Reveal>
+        <Reveal key={s.k} delay={i * 70}><Card s={s} accent={i === 2} /></Reveal>
       ))}
     </div>
   )

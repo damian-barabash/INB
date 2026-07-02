@@ -81,6 +81,10 @@ export const DEFAULTS = {
 
   'home.coop.kicker':     { pl: 'Współpraca', en: 'Cooperation' },
   'home.audit.kicker':    { pl: 'Audyt i analiza', en: 'Audit & analysis' },
+  'home.why.kicker':      { pl: 'Dlaczego INBI', en: 'Why INBI' },
+  'home.services.kicker': { pl: 'Nasze usługi', en: 'Our services' },
+  'home.ins.kicker':      { pl: '15 linii ubezpieczeń dla biznesu', en: '15 insurance lines for business' },
+  'home.ins.cta':         { pl: 'Zobacz pełną ofertę', en: 'See the full offer' },
 
   'home.closing':         {
     pl: 'Dokładamy wszelkich starań, by świadczone przez nas usługi zawsze były indywidualnie dostosowywane do potrzeb i zasobów finansowych naszych Klientów.',

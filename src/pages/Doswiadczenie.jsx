@@ -48,11 +48,13 @@ export default function Doswiadczenie() {
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="wrap">
           <Reveal>
-            <div className="stats" style={{ borderTop: '1px solid var(--line)', paddingTop: 54 }}>
-              <Stat value={text('home.stat1.num')} label={text('home.stat1.label')} />
-              <Stat value={text('home.stat2.num')} label={text('home.stat2.label')} />
-              <Stat value={text('home.stat3.num')} label={text('home.stat3.label')} />
-              <Stat value={text('home.stat4.num')} label={text('home.stat4.label')} />
+            <div className="stats-band">
+              <div className="stats">
+                <Stat value={text('home.stat1.num')} label={text('home.stat1.label')} />
+                <Stat value={text('home.stat2.num')} label={text('home.stat2.label')} />
+                <Stat value={text('home.stat3.num')} label={text('home.stat3.label')} />
+                <Stat value={text('home.stat4.num')} label={text('home.stat4.label')} />
+              </div>
             </div>
           </Reveal>
         </div>

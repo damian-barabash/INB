@@ -39,6 +39,12 @@ export default function Nav() {
             )}
           </nav>
           <div className="nav__right">
+            <NavLink to="/kontakt" className="btn btn--accent nav__cta">
+              {text('nav.contact')}
+              <span className="btn__arrow" aria-hidden>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M7 17 17 7M9 7h8v8" /></svg>
+              </span>
+            </NavLink>
             <div className="langsw" role="group" aria-label="Language">
               <button className={lang === 'pl' ? 'on' : ''} onClick={() => setLang('pl')}>PL</button>
               <button className={lang === 'en' ? 'on' : ''} onClick={() => setLang('en')}>EN</button>

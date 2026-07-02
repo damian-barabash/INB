@@ -5,3 +5,6 @@ dist
 .env
 .env.*
 !.env.example
+
+# lokalny backup (kod + dump Supabase) — nie commitować
+backup/
