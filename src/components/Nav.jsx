@@ -3,6 +3,7 @@ import { NavLink, useLocation } from 'react-router-dom'
 import { useApp } from '../lib/store.jsx'
 
 const LOGO = `${import.meta.env.BASE_URL}logo.png`
+const LOGO_LIGHT = `${import.meta.env.BASE_URL}logo-light.png`
 
 export const LINKS = [
   { to: '/o-nas', k: 'nav.about' },
@@ -17,6 +18,9 @@ export default function Nav() {
   const [solid, setSolid] = useState(false)
   const [open, setOpen] = useState(false)
   const loc = useLocation()
+  // on the home page the hero photo runs under the header — nav goes transparent
+  // on top of it until the user scrolls away
+  const over = loc.pathname === '/' && !solid && !open
 
   useEffect(() => {
     const onScroll = () => setSolid(window.scrollY > 40)
@@ -29,9 +33,9 @@ export default function Nav() {
 
   return (
     <>
-      <header className={`nav ${solid || open ? 'nav--solid' : ''}`}>
+      <header className={`nav ${solid || open ? 'nav--solid' : ''} ${over ? 'nav--over' : ''}`}>
         <div className="wrap nav__inner">
-          <NavLink to="/" className="brand" aria-label="INBI"><img src={LOGO} alt="INBI Insurance" /></NavLink>
+          <NavLink to="/" className="brand" aria-label="INBI"><img src={over ? LOGO_LIGHT : LOGO} alt="INBI Insurance" /></NavLink>
           <nav className="nav__links">
             {LINKS.map((l) => l.ext
               ? <a key={l.k} href={l.ext} target="_blank" rel="noreferrer">{text(l.k)}</a>

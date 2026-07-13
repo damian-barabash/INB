@@ -88,6 +88,14 @@ h2.title, .title {
   padding: 22px 0;
 }
 .nav--solid { background: rgba(244,244,241,.82); backdrop-filter: blur(14px); box-shadow: 0 1px 0 var(--line); padding: 14px 0; }
+/* transparent header sitting on top of the home hero photo */
+.nav--over .nav__links a { color: rgba(255,255,255,.82); }
+.nav--over .nav__links a:hover, .nav--over .nav__links a.active { color: #fff; }
+.nav--over .langsw { border-color: rgba(255,255,255,.45); }
+.nav--over .langsw button { color: rgba(255,255,255,.8); }
+.nav--over .langsw button.on { background: #fff; color: var(--navy); }
+.nav--over .burger { border-color: rgba(255,255,255,.45); }
+.nav--over .burger span { background: #fff; }
 .nav__inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .brand { display: flex; align-items: center; gap: 0; }
 .brand img { height: 50px; width: auto; }
@@ -120,11 +128,16 @@ h2.title, .title {
 .drawer a { font-size: 30px; font-weight: 800; letter-spacing: -0.02em; padding: 10px 0; color: var(--ink); }
 .drawer a.active { color: var(--accent); }
 
-/* ---------- hero: full-bleed photo ---------- */
-.hero { padding-top: 96px; }
+/* ---------- hero: full-bleed photo, runs under the fixed header ---------- */
+.hero { padding-top: 0; }
 .hero__frame {
   position: relative; overflow: hidden; background: var(--navy); color: #fff;
-  min-height: min(82svh, 780px); display: flex; align-items: flex-end;
+  min-height: min(92svh, 900px); display: flex; align-items: flex-end;
+}
+/* darkens the top strip so the transparent nav stays readable over any photo */
+.hero__frame::after {
+  content: ''; position: absolute; inset: 0 0 auto 0; height: 190px; z-index: 1; pointer-events: none;
+  background: linear-gradient(180deg, rgba(3,20,46,.62) 0%, rgba(3,20,46,.28) 55%, rgba(3,20,46,0) 100%);
 }
 .hero__bg { position: absolute; inset: 0; z-index: 0; }
 .hero__bg, .hero__bg .img-edit, .hero__bg img { width: 100%; height: 100%; }
@@ -295,8 +308,8 @@ h2.title, .title {
 @media (max-width: 940px) {
   .nav__links { display: none; }
   .burger { display: block; }
-  .hero { padding-top: 84px; }
-  .hero__frame { min-height: min(74svh, 660px); }
+  .hero__frame { min-height: min(88svh, 760px); }
+  .hero__frame::after { height: 150px; }
   .hero__frame::before { background: linear-gradient(12deg, rgba(3,20,46,.9) 12%, rgba(3,20,46,.45) 55%, rgba(3,20,46,.12) 100%); }
   .hero__content { padding: 34px 0 46px; }
   .stats { grid-template-columns: repeat(2, 1fr); gap: 22px; }

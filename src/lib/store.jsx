@@ -6,12 +6,25 @@ const Ctx = createContext(null)
 export const useApp = () => useContext(Ctx)
 
 const LANG_KEY = 'inb_lang'
+const CACHE_KEY = 'inb_published_v1'
+
+// Published content is cached so a repeat visit paints the CMS images immediately.
+// Without it the code fallback shows first and the real photo swaps in a moment later.
+function readCache() {
+  try {
+    const raw = localStorage.getItem(CACHE_KEY)
+    if (!raw) return null
+    const c = JSON.parse(raw)
+    return c && c.content && c.images ? c : null
+  } catch { return null }
+}
 
 export function AppProvider({ children }) {
+  const cache = useRef(readCache()).current
   const [lang, setLangState] = useState(() => localStorage.getItem(LANG_KEY) || 'pl')
-  const [dbContent, setDbContent] = useState({})
-  const [dbImages, setDbImages] = useState({})
-  const [loaded, setLoaded] = useState(false)
+  const [dbContent, setDbContent] = useState(cache?.content || {})
+  const [dbImages, setDbImages] = useState(cache?.images || {})
+  const [loaded, setLoaded] = useState(!!cache)
 
   // edit mode (admin)
   const [editing, setEditing] = useState(false)
@@ -43,6 +56,10 @@ export function AppProvider({ children }) {
   }, [])
 
   useEffect(() => { reload() }, [reload])
+  useEffect(() => {
+    if (!loaded) return
+    try { localStorage.setItem(CACHE_KEY, JSON.stringify({ content: dbContent, images: dbImages })) } catch { /* quota */ }
+  }, [loaded, dbContent, dbImages])
   useEffect(() => { document.documentElement.lang = lang }, [lang])
 
   const text = useCallback((key, l = lang) => {
@@ -159,9 +176,13 @@ export function fileToWebpBase64(file, maxW = 1600, quality = 0.85) {
 
 // Editable image with edit-mode overlay.
 export function Img({ k, fallback, alt, className, style }) {
-  const { img, editing, replaceImg, resetImg } = useApp()
+  const { img, loaded, editing, replaceImg, resetImg } = useApp()
   const [busy, setBusy] = useState(false)
   const src = img(k) || fallback
+  // until the published images are known, an override may exist for this key —
+  // holding the paint back avoids flashing the code fallback and swapping it out
+  const ready = loaded || editing
+  const imgStyle = { ...style, opacity: ready ? 1 : 0, transition: 'opacity .35s ease' }
   async function onFile(e) {
     const f = e.target.files?.[0]
     if (!f) return
@@ -174,11 +195,11 @@ export function Img({ k, fallback, alt, className, style }) {
     e.target.value = ''
   }
   if (!editing) {
-    return <img src={src} alt={alt || ''} className={className} style={style} loading="lazy" />
+    return <img src={ready ? src : undefined} alt={alt || ''} className={className} style={imgStyle} loading="lazy" />
   }
   return (
     <span className="img-edit" style={{ display: 'block', position: 'relative' }}>
-      <img src={src} alt={alt || ''} className={className} style={style} />
+      <img src={src} alt={alt || ''} className={className} style={imgStyle} />
       <span className="img-edit__bar">
         <label className="img-edit__btn">{busy ? '…' : 'Zmień'}
           <input type="file" accept="image/*" onChange={onFile} hidden />
