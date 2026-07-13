@@ -52,9 +52,6 @@ export default function Home() {
                 <T as="span" k="home.hero.title2" style={{ display: 'block', color: 'var(--accent)' }} />
               </h1>
               <T as="p" k="home.hero.lead" className="lead hero__lead" />
-              <MagneticButton as={Link} to="/kontakt" className="btn btn--white">
-                {text('home.hero.cta')}<Arrow />
-              </MagneticButton>
             </Reveal>
           </div>
         </div>
