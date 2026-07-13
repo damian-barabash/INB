@@ -133,8 +133,10 @@ h2.title, .title {
   content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
   background: linear-gradient(76deg, rgba(3,20,46,.88) 0%, rgba(3,20,46,.55) 44%, rgba(3,20,46,.14) 78%, rgba(3,20,46,.05) 100%);
 }
-.hero__wrap { position: relative; z-index: 2; width: 100%; }
-.hero__content { padding: clamp(40px, 6vw, 86px) 0; max-width: 780px; }
+/* the content layer spans the whole frame — let clicks fall through to the photo
+   (otherwise it swallows the CMS «Zmień» button on the hero image) */
+.hero__wrap { position: relative; z-index: 2; width: 100%; pointer-events: none; }
+.hero__content { padding: clamp(40px, 6vw, 86px) 0; max-width: 780px; pointer-events: auto; }
 .hero__content .display { color: #fff; }
 .hero__lead { max-width: 460px; margin: 24px 0 32px; color: rgba(255,255,255,.85); }
 
