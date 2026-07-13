@@ -232,17 +232,6 @@ export const DEFAULTS = {
   'chart.cat5':           { pl: 'Zdrowotne i na życie', en: 'Health & life' },
   'chart.unit':           { pl: 'rodzajów', en: 'lines' },
 
-  // ---------- FAQ (accordion on Oferta) ----------
-  'faq.title':            { pl: 'Najczęstsze pytania', en: 'Frequently asked questions' },
-  'faq.q1':               { pl: 'Ile kosztuje współpraca z brokerem?', en: 'How much does working with a broker cost?' },
-  'faq.a1':               { pl: 'Wynagrodzenie brokera pochodzi z prowizji wypłacanej przez zakład ubezpieczeń — dla naszych Klientów usługi doradcze pozostają bezpłatne.', en: 'The broker’s remuneration comes from a commission paid by the insurer — for our Clients the advisory services remain free of charge.' },
-  'faq.q2':               { pl: 'Czym broker różni się od agenta?', en: 'How is a broker different from an agent?' },
-  'faq.a2':               { pl: 'Broker reprezentuje Klienta i działa w jego interesie, negocjując warunki z wieloma ubezpieczycielami. Agent reprezentuje konkretny zakład ubezpieczeń.', en: 'A broker represents the Client and acts in their interest, negotiating terms with many insurers. An agent represents a specific insurance company.' },
-  'faq.q3':               { pl: 'Jak wygląda rozpoczęcie współpracy?', en: 'What does starting cooperation look like?' },
-  'faq.a3':               { pl: 'Zaczynamy od bezpłatnego audytu obecnej ochrony ubezpieczeniowej i analizy ryzyk, na podstawie których przygotowujemy rekomendacje i koncepcję programu.', en: 'We start with a free audit of the current insurance protection and a risk analysis, on which we base our recommendations and the programme concept.' },
-  'faq.q4':               { pl: 'Czy zajmujecie się likwidacją szkód?', en: 'Do you handle claims settlement?' },
-  'faq.a4':               { pl: 'Tak — zgłaszamy i prowadzimy likwidację szkód osobiście, niezwłocznie po otrzymaniu informacji, dbając o najwyższą wypłatę odszkodowania.', en: 'Yes — we report and handle claims personally, immediately after receiving the information, ensuring the highest possible compensation.' },
-
   // ---------- CONTACT ----------
   'kontakt.title':        { pl: 'Kontakt', en: 'Contact' },
   'kontakt.cta':          { pl: 'Zapraszamy do współpracy', en: 'We invite you to cooperate' },

@@ -39,37 +39,24 @@ export default function Home() {
 
   return (
     <>
-      {/* HERO — framed photo card */}
+      {/* HERO — full-bleed photo */}
       <section className="hero">
-        <div className="wrap">
-          <Reveal>
-            <div className="hero__frame">
-              <div className="hero__bg">
-                <Img k="home.hero.bg" fallback={`${BASE}img/hero.webp`} alt="" />
-              </div>
-              <div className="hero__content">
-                <div className="kicker kicker--light">{text('home.hero.kicker')}</div>
-                <h1 className="display" style={{ marginTop: 18 }}>
-                  <T as="span" k="home.hero.title1" style={{ display: 'block' }} />
-                  <T as="span" k="home.hero.title2" style={{ display: 'block', color: 'var(--accent)' }} />
-                </h1>
-                <T as="p" k="home.hero.lead" className="lead hero__lead" />
-                <div className="hero__actions">
-                  <MagneticButton as={Link} to="/kontakt" className="btn btn--white">
-                    {text('home.hero.cta')}<Arrow />
-                  </MagneticButton>
-                  <a href="tel:+48223271655" className="hero__phone">
-                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
-                    +48 22 327 16 55
-                  </a>
-                </div>
-              </div>
-              <div className="hero__badge">
-                <span className="hero__badge-num">{text('home.stat1.num')}</span>
-                <span className="hero__badge-label">{text('home.stat1.label')}</span>
-              </div>
-            </div>
-          </Reveal>
+        <div className="hero__frame">
+          <div className="hero__bg">
+            <Img k="home.hero.bg" fallback={`${BASE}img/hero.webp`} alt="" />
+          </div>
+          <div className="wrap hero__wrap">
+            <Reveal className="hero__content">
+              <h1 className="display">
+                <T as="span" k="home.hero.title1" style={{ display: 'block' }} />
+                <T as="span" k="home.hero.title2" style={{ display: 'block', color: 'var(--accent)' }} />
+              </h1>
+              <T as="p" k="home.hero.lead" className="lead hero__lead" />
+              <MagneticButton as={Link} to="/kontakt" className="btn btn--white">
+                {text('home.hero.cta')}<Arrow />
+              </MagneticButton>
+            </Reveal>
+          </div>
         </div>
       </section>
 
